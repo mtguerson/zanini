@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { Header } from '@/components/header';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,7 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
+      <Header />
       <body className={`antialiased ${inter.className}`}>{children}</body>
     </html>
   );
