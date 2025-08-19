@@ -55,7 +55,7 @@ export function Hero() {
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Hero Title */}
         <div className="mb-8">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             Transforme sua{' '}
             <span
               className={`relative text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-600 to-pink-600 transition-all duration-500 ${
