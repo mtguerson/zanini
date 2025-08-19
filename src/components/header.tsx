@@ -30,7 +30,7 @@ export function Header() {
       </div>
 
       {/* Header principal */}
-      <div className="py-4 px-4 sm:px-6 lg:px-24 w-full items-center justify-between flex border-b">
+      <div className="py-4 px-4 md:px-24 sm:px-6 lg:px-32 w-full items-center justify-between flex border-b">
         {/* Logo e navegação */}
         <div className="flex gap-4 items-center">
           <h1 className="text-xl sm:text-2xl font-bold">Zanini</h1>
