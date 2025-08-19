@@ -1,0 +1,44 @@
+# Regras do Projeto Zanini
+
+## 🎨 Design System
+
+- Sempre use Tailwind CSS para estilização
+- Siga o sistema de cores definido no globals.css (primary, secondary, etc.)
+- Mantenha consistência visual em todos os componentes
+- Use espaçamentos padronizados (4, 6, 8, 12, 16, 24, 32)
+
+## 🚀 Desenvolvimento
+
+- Componentes devem ser responsivos (mobile-first)
+- Use TypeScript para type safety
+- Siga padrões React modernos (hooks, functional components)
+- Implemente acessibilidade (ARIA, semantic HTML)
+
+## 📱 Responsividade
+
+- Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)
+- Mobile-first approach
+- Teste em diferentes tamanhos de tela
+
+## 🎯 Padrões de Código
+
+- Use camelCase para variáveis e funções
+- Use PascalCase para componentes
+- Use Export Function para componentes (Não use Export Default Function)
+- Comentários em português
+- Nomes descritivos e claros
+- Utilize Function Declaration, não crie arrow functions
+
+## 🔍 Performance
+
+- Otimize imagens com Next.js Image
+- Use lazy loading quando apropriado
+- Minimize re-renders desnecessários
+- Implemente loading states
+
+## 🧪 Qualidade
+
+- Sempre teste responsividade
+- Verifique acessibilidade
+- Mantenha código limpo e legível
+- Siga princípios SOLID
