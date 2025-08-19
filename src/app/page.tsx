@@ -1,3 +1,9 @@
+import { Hero } from '@/components/hero';
+
 export default function Home() {
-  return <h1>Zanini</h1>;
+  return (
+    <main className="min-h-screen">
+      <Hero />
+    </main>
+  );
 }
