@@ -18,7 +18,8 @@ export function Header() {
       {/* Banner superior */}
       <div className="bg-primary text-center flex justify-center items-center w-full">
         <span className="text-primary-foreground p-2 text-sm">
-          Bem-vindo à Zanini Comunicação Visual!
+          Bem-vindo à{' '}
+          <span className="font-bold">Zanini Comunicação Visual</span>!
         </span>
         <Image
           unoptimized
@@ -30,7 +31,7 @@ export function Header() {
       </div>
 
       {/* Header principal */}
-      <div className="py-4 px-4 md:px-24 sm:px-6 lg:px-32 w-full items-center justify-between flex border-b">
+      <div className="py-4 px-4 md:px-24 sm:px-6 lg:px-36 w-full items-center justify-between flex border-b">
         {/* Logo e navegação */}
         <div className="flex gap-4 items-center">
           <h1 className="text-xl sm:text-2xl font-bold">Zanini</h1>
