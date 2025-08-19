@@ -81,7 +81,7 @@ export function Hero() {
             className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
             Começar Projeto
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
 
           <Button
