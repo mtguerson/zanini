@@ -11,7 +11,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="group mt-4 relative w-full max-w-sm mx-auto bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
+    <div className="group mt-4 relative w-full max-w-lg bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
       {/* Container da Imagem com Badge */}
       <div className="relative aspect-square overflow-hidden bg-gray-50">
         <Image
@@ -47,7 +47,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Botão Comprar Agora */}
         <Button
-          className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-2.5 rounded-lg transition-all duration-200 flex items-center justify-center gap-2"
+          className="w-full bg-primary cursor-pointer hover:bg-primary/90 text-white font-medium py-2.5 rounded-lg transition-all duration-200 flex items-center justify-center gap-2"
           disabled={!product.availableForSale}
         >
           <ShoppingCart className="w-4 h-4" />
