@@ -10,10 +10,10 @@ export function Hero() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const heroTexts = [
-    'Comunicação Visual',
-    'Design Criativo',
+    'Ideia',
     'Identidade Visual',
-    'Marketing Digital',
+    'Arte Personalizada',
+    'Marca em Sucesso',
   ];
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export function Hero() {
       setTimeout(() => {
         setCurrentText((prev) => (prev + 1) % heroTexts.length);
         setIsTransitioning(false);
-      }, 300); // Delay para a transição
+      }, 250); // Delay para a transição
     }, 3000);
 
     return () => clearInterval(interval);
