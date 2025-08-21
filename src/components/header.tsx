@@ -4,7 +4,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import br from '@/assets/brazil-flag.gif';
 import { SearchInput } from './ui/search-input';
-import { ShoppingCart, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { ShoppingCart } from './shopping-cart';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,8 +59,8 @@ export function Header() {
           </div>
 
           {/* Carrinho */}
-          <div className="bg-primary rounded-full p-2 hover:bg-primary/90 transition-colors cursor-pointer">
-            <ShoppingCart color="white" size={16} />
+          <div className="relative">
+            <ShoppingCart />
           </div>
 
           {/* Botão do menu hambúrguer */}

@@ -4,15 +4,9 @@ import { Product } from '@/lib/shopify/types';
 import { formatPrice } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import {
-  ShoppingCart,
-  Heart,
-  Share2,
-  Truck,
-  Shield,
-  RotateCcw,
-} from 'lucide-react';
+import { ShoppingCart, Share2, Truck, Shield, RotateCcw } from 'lucide-react';
 import { useState } from 'react';
+import { useCart } from '@/hooks/use-cart';
 import { ProductVariantSelector } from './product-variant-selector';
 
 interface ProductInfoProps {
@@ -22,7 +16,7 @@ interface ProductInfoProps {
 export function ProductInfo({ product }: ProductInfoProps) {
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
   const [quantity, setQuantity] = useState(1);
-  const [isAddingToCart, setIsAddingToCart] = useState(false);
+  const { addProduct, toggleCart } = useCart();
 
   // Calcula preço com desconto (exemplo: 15% off)
   const originalPrice = parseFloat(
@@ -35,6 +29,18 @@ export function ProductInfo({ product }: ProductInfoProps) {
     if (newQuantity >= 1) {
       setQuantity(newQuantity);
     }
+  }
+
+  function handleAddToCart() {
+    if (!selectedVariant) return;
+
+    const cartProduct = {
+      ...product,
+      quantity: quantity,
+    };
+    addProduct(cartProduct);
+
+    toggleCart();
   }
 
   return (
@@ -147,12 +153,13 @@ export function ProductInfo({ product }: ProductInfoProps) {
       {/* Botões de Ação */}
       <div className="space-y-3">
         <Button
-          disabled={!product.availableForSale || isAddingToCart}
+          onClick={handleAddToCart}
+          disabled={!product.availableForSale}
           className="w-full h-12 text-base font-semibold"
           size="lg"
         >
           <ShoppingCart className="w-5 h-5 mr-2" />
-          {isAddingToCart ? 'Adicionando...' : 'Adicionar ao Carrinho'}
+          Adicionar ao carrinho
         </Button>
 
         <Button
