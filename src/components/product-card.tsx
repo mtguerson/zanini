@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { formatPrice } from '@/lib/utils';
+import Link from 'next/link';
 
 interface ProductCardProps {
   product: Product;
@@ -47,11 +48,14 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Botão Comprar Agora */}
         <Button
+          asChild
           className="w-full bg-primary cursor-pointer hover:bg-primary/90 text-white font-medium py-2.5 rounded-lg transition-all duration-200 flex items-center justify-center gap-2"
           disabled={!product.availableForSale}
         >
-          <ShoppingCart className="w-4 h-4" />
-          {product.availableForSale ? 'Comprar Agora' : 'Indisponível'}
+          <Link href={`/produto/${product.handle}`}>
+            <ShoppingCart className="w-4 h-4" />
+            {product.availableForSale ? 'Comprar Agora' : 'Indisponível'}
+          </Link>
         </Button>
       </div>
     </div>
