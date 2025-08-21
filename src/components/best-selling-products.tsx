@@ -2,6 +2,14 @@ import { getProducts } from '@/lib/shopify';
 import { Badge } from './ui/badge';
 import { TrendingUp } from 'lucide-react';
 import { ProductCard } from './product-card';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from './ui/carousel';
+import { Card, CardContent } from './ui/card';
 
 export async function BestSellingProducts() {
   const bestSellingProducts = await getProducts({ sortKey: 'BEST_SELLING' });
@@ -22,11 +30,28 @@ export async function BestSellingProducts() {
         Uma seleção especial dos nossos produtos que têm transformado a vida de
         milhares de pessoas.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-        {bestSellingProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+
+      <Carousel
+        opts={{
+          align: 'center',
+        }}
+        className="w-full max-w-screen"
+      >
+        <CarouselContent>
+          {bestSellingProducts.map((product) => (
+            <CarouselItem
+              key={product.id}
+              className="md:basis-1/2 lg:basis-1/5"
+            >
+              <div className="p-1">
+                <ProductCard product={product} key={product.id} />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
   );
 }
