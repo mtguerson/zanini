@@ -6,6 +6,7 @@ import br from '@/assets/brazil-flag.gif';
 import { SearchInput } from './ui/search-input';
 import { Menu, X } from 'lucide-react';
 import { ShoppingCart } from './shopping-cart';
+import Link from 'next/link';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +36,9 @@ export function Header() {
       <div className="py-4 px-4 md:px-24 sm:px-6 lg:px-36 w-full items-center justify-between flex border-b">
         {/* Logo e navegação */}
         <div className="flex gap-4 items-center">
-          <h1 className="text-xl sm:text-2xl font-bold">Zanini</h1>
+          <Link href="/">
+            <h1 className="text-xl sm:text-2xl font-bold">Zanini</h1>
+          </Link>
 
           {/* Menu desktop */}
           <nav className="hidden md:flex gap-4 items-center">
