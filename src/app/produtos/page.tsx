@@ -1,4 +1,5 @@
 import { ProductsFilters } from '@/components/products-filters';
+import { ProductsFiltersSkeleton } from '@/components/products-filters-skeleton';
 import { ProductsGrid } from '@/components/products-grid';
 import { ProductsGridSkeleton } from '@/components/products-grid-skeleton';
 import { getProducts } from '@/lib/shopify';
@@ -77,7 +78,7 @@ export default async function ProductsPage({
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Filtros Laterais */}
           <div className="lg:col-span-1">
-            <Suspense fallback={<div>Carregando filtros...</div>}>
+            <Suspense fallback={<ProductsFiltersSkeleton />}>
               <ProductsFilters
                 products={products}
                 currentFilters={{
