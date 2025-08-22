@@ -7,6 +7,8 @@ import { SearchInput } from './ui/search-input';
 import { Menu, X } from 'lucide-react';
 import { ShoppingCart } from './shopping-cart';
 import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,6 +16,8 @@ export function Header() {
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
+
+  const path = usePathname();
 
   return (
     <header className="relative">
@@ -42,11 +46,19 @@ export function Header() {
 
           {/* Menu desktop */}
           <nav className="hidden md:flex gap-4 items-center">
+            <Link
+              href="/produtos"
+              className={
+                (cn(`text-sm hover:underline cursor-pointer transition-colors`),
+                path === '/produtos'
+                  ? 'text-primary font-semibold underline'
+                  : '')
+              }
+            >
+              Produtos
+            </Link>
             <h2 className="text-sm hover:underline cursor-pointer transition-colors">
               Categorias
-            </h2>
-            <h2 className="text-sm hover:underline cursor-pointer transition-colors">
-              Produtos
             </h2>
             <h2 className="text-sm hover:underline cursor-pointer transition-colors">
               Sobre
@@ -92,11 +104,14 @@ export function Header() {
 
             {/* Navegação mobile */}
             <nav className="flex flex-col space-y-3">
+              <Link
+                href="/produtos"
+                className="text-base hover:text-primary cursor-pointer transition-colors py-2 border-b border-gray-100"
+              >
+                Produtos
+              </Link>
               <h2 className="text-base hover:text-primary cursor-pointer transition-colors py-2 border-b border-gray-100">
                 Categorias
-              </h2>
-              <h2 className="text-base hover:text-primary cursor-pointer transition-colors py-2 border-b border-gray-100">
-                Produtos
               </h2>
               <h2 className="text-base hover:text-primary cursor-pointer transition-colors py-2 border-b border-gray-100">
                 Sobre
