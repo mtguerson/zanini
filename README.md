@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## 🚀 Getting Started
 
 First, run the development server:
 
@@ -19,6 +19,34 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## 📋 Regras de Desenvolvimento
+
+### 🎨 Design System
+
+- **Tailwind CSS**: Use sempre as classes utilitárias do Tailwind
+- **Cores**: Siga o sistema de cores definido (primary, secondary, etc.)
+- **Espaçamentos**: Use valores padronizados (4, 6, 8, 12, 16, 24, 32)
+- **Tipografia**: Mantenha hierarquia visual consistente
+
+### 📱 Responsividade
+
+- **Mobile-first**: Desenvolva sempre pensando em mobile primeiro
+- **Breakpoints**: sm (640px), md (768px), lg (1024px), xl (1280px)
+- **Teste**: Verifique em diferentes tamanhos de tela
+
+### 🔧 Padrões Técnicos
+
+- **TypeScript**: Use para type safety
+- **Componentes**: Functional components com hooks
+- **Nomenclatura**: camelCase para variáveis, PascalCase para componentes
+- **Acessibilidade**: Implemente ARIA e HTML semântico
+
+### 🧪 Qualidade
+
+- **Código limpo**: Siga princípios SOLID e DRY
+- **Performance**: Otimize imagens e minimize re-renders
+- **Testes**: Sempre teste responsividade e acessibilidade
 
 ## Learn More
 

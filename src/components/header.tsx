@@ -4,7 +4,11 @@ import Image from 'next/image';
 import { useState } from 'react';
 import br from '@/assets/brazil-flag.gif';
 import { SearchInput } from './ui/search-input';
-import { ShoppingCart, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { ShoppingCart } from './shopping-cart';
+import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,12 +17,15 @@ export function Header() {
     setIsMenuOpen(!isMenuOpen);
   }
 
+  const path = usePathname();
+
   return (
     <header className="relative">
       {/* Banner superior */}
       <div className="bg-primary text-center flex justify-center items-center w-full">
         <span className="text-primary-foreground p-2 text-sm">
-          Bem-vindo à Zanini Comunicação Visual!
+          Bem-vindo à{' '}
+          <span className="font-bold">Zanini Comunicação Visual</span>!
         </span>
         <Image
           unoptimized
@@ -30,18 +37,28 @@ export function Header() {
       </div>
 
       {/* Header principal */}
-      <div className="py-4 px-4 sm:px-6 lg:px-24 w-full items-center justify-between flex border-b">
+      <div className="py-4 px-4 md:px-24 sm:px-6 lg:px-36 w-full items-center justify-between flex border-b">
         {/* Logo e navegação */}
         <div className="flex gap-4 items-center">
-          <h1 className="text-xl sm:text-2xl font-bold">Zanini</h1>
+          <Link href="/">
+            <h1 className="text-xl sm:text-2xl font-bold">Zanini</h1>
+          </Link>
 
           {/* Menu desktop */}
           <nav className="hidden md:flex gap-4 items-center">
+            <Link
+              href="/produtos"
+              className={
+                (cn(`text-sm hover:underline cursor-pointer transition-colors`),
+                path === '/produtos'
+                  ? 'text-primary font-semibold underline'
+                  : '')
+              }
+            >
+              Produtos
+            </Link>
             <h2 className="text-sm hover:underline cursor-pointer transition-colors">
               Categorias
-            </h2>
-            <h2 className="text-sm hover:underline cursor-pointer transition-colors">
-              Produtos
             </h2>
             <h2 className="text-sm hover:underline cursor-pointer transition-colors">
               Sobre
@@ -57,8 +74,8 @@ export function Header() {
           </div>
 
           {/* Carrinho */}
-          <div className="bg-primary rounded-full p-2 hover:bg-primary/90 transition-colors cursor-pointer">
-            <ShoppingCart color="white" size={16} />
+          <div className="relative">
+            <ShoppingCart />
           </div>
 
           {/* Botão do menu hambúrguer */}
@@ -87,11 +104,14 @@ export function Header() {
 
             {/* Navegação mobile */}
             <nav className="flex flex-col space-y-3">
+              <Link
+                href="/produtos"
+                className="text-base hover:text-primary cursor-pointer transition-colors py-2 border-b border-gray-100"
+              >
+                Produtos
+              </Link>
               <h2 className="text-base hover:text-primary cursor-pointer transition-colors py-2 border-b border-gray-100">
                 Categorias
-              </h2>
-              <h2 className="text-base hover:text-primary cursor-pointer transition-colors py-2 border-b border-gray-100">
-                Produtos
               </h2>
               <h2 className="text-base hover:text-primary cursor-pointer transition-colors py-2 border-b border-gray-100">
                 Sobre

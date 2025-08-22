@@ -1,3 +1,11 @@
+import { Hero } from '@/components/hero';
+import { BestSellingProducts } from '@/components/best-selling-products';
+
 export default function Home() {
-  return <h1>Zanini</h1>;
+  return (
+    <main className="min-h-screen">
+      <Hero />
+      <BestSellingProducts />
+    </main>
+  );
 }
