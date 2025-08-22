@@ -43,9 +43,7 @@ export async function BestSellingProducts() {
               key={product.id}
               className="md:basis-1/2 lg:basis-1/5"
             >
-              <div className="p-1">
-                <ProductCard product={product} key={product.id} />
-              </div>
+              <ProductCard product={product} key={product.id} />
             </CarouselItem>
           ))}
         </CarouselContent>
