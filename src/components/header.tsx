@@ -7,8 +7,7 @@ import { SearchInput } from './ui/search-input';
 import { Menu, X } from 'lucide-react';
 import { ShoppingCart } from './shopping-cart';
 import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,18 +48,17 @@ export function Header() {
             <Link
               href="/produtos"
               className={
-                (cn(`text-sm hover:underline cursor-pointer transition-colors`),
                 path === '/produtos'
-                  ? 'text-primary font-semibold underline'
-                  : '')
+                  ? 'text-primary font-semibold underline underline-offset-2'
+                  : 'hover:underline transition-colors underline-offset-2'
               }
             >
               Produtos
             </Link>
-            <h2 className="text-sm hover:underline cursor-pointer transition-colors">
+            <h2 className="text-sm hover:underline cursor-pointer transition-colors text-gray-300">
               Categorias
             </h2>
-            <h2 className="text-sm hover:underline cursor-pointer transition-colors">
+            <h2 className="text-sm hover:underline cursor-pointer transition-colors text-gray-300">
               Sobre
             </h2>
           </nav>
