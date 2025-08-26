@@ -1,6 +1,6 @@
 import { getProducts } from '@/lib/shopify';
 import { Badge } from './ui/badge';
-import { TrendingUp } from 'lucide-react';
+import { ArrowRight, TrendingUp } from 'lucide-react';
 import { ProductCard } from './product-card';
 import {
   Carousel,
@@ -9,7 +9,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from './ui/carousel';
-import { Card, CardContent } from './ui/card';
+import { Button } from './ui/button';
+import Link from 'next/link';
 
 export async function BestSellingProducts() {
   const bestSellingProducts = await getProducts({ sortKey: 'BEST_SELLING' });
@@ -50,6 +51,13 @@ export async function BestSellingProducts() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
+
+      <Button className="mt-6" size="lg" asChild>
+        <Link href="/produtos">
+          Ver todos os produtos
+          <ArrowRight />
+        </Link>
+      </Button>
     </div>
   );
 }

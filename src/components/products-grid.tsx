@@ -132,7 +132,7 @@ export function ProductsGrid({ products, currentSort }: ProductsGridProps) {
               variant={viewMode === 'grid' ? 'default' : 'ghost'}
               size="sm"
               onClick={() => setViewMode('grid')}
-              className="rounded-r-none"
+              className="rounded-r-none hidden md:flex"
             >
               <Grid3X3 className="w-4 h-4" />
             </Button>
@@ -140,7 +140,7 @@ export function ProductsGrid({ products, currentSort }: ProductsGridProps) {
               variant={viewMode === 'list' ? 'default' : 'ghost'}
               size="sm"
               onClick={() => setViewMode('list')}
-              className="rounded-l-none"
+              className="rounded-l-none hidden md:flex"
             >
               <List className="w-4 h-4" />
             </Button>
@@ -173,4 +173,3 @@ export function ProductsGrid({ products, currentSort }: ProductsGridProps) {
     </div>
   );
 }
-
