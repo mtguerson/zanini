@@ -1,5 +1,5 @@
 import { Product } from '@/lib/shopify/types';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Star } from 'lucide-react';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -32,7 +32,13 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
           <div className="flex-1 flex flex-col justify-between">
             <div>
               <h3 className="font-semibold text-gray-900 text-lg leading-tight mb-2 group-hover:text-primary transition-colors">
-                {product.title}
+                <div className="gap-2 flex">
+                  {product.title}
+                  <Badge variant="outline">
+                    <Star className="text-amber-500" fill="#e89d09" />
+                    4.9
+                  </Badge>
+                </div>
               </h3>
               <p className="text-muted-foreground text-sm line-clamp-2 mb-3">
                 {product.description}
@@ -91,9 +97,16 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
       {/* Conteúdo do Card */}
       <div className="p-4 space-y-3">
         {/* Título do Produto */}
-        <h3 className="font-semibold text-gray-900 text-sm leading-tight line-clamp-2 min-h-[2.5rem] group-hover:text-primary transition-colors">
-          {product.title}
-        </h3>
+        <div className="justify-between flex items-start">
+          <h3 className="font-semibold text-gray-900 text-sm leading-tight line-clamp-2 min-h-[2.5rem] group-hover:text-primary transition-colors">
+            {product.title}
+          </h3>
+
+          <Badge variant="outline">
+            <Star className="text-amber-500" fill="#e89d09" />
+            4.9
+          </Badge>
+        </div>
 
         {/* Preço */}
         <div className="flex items-center gap-2">
