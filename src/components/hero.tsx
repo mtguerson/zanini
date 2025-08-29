@@ -58,7 +58,7 @@ export function Hero() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
             Transforme sua{' '}
             <span
-              className={`relative text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-600 to-pink-600 transition-all duration-500 ${
+              className={`relative text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-600 to-amber-600 transition-all duration-500 ${
                 isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
               }`}
             >

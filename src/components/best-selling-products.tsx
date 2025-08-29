@@ -42,7 +42,7 @@ export async function BestSellingProducts() {
           {bestSellingProducts.map((product) => (
             <CarouselItem
               key={product.id}
-              className="md:basis-1/2 lg:basis-1/5"
+              className="md:basis-1/2 lg:basis-1/5 py-2"
             >
               <ProductCard product={product} key={product.id} />
             </CarouselItem>
