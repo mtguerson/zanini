@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, Palette, Camera, PenTool } from 'lucide-react';
 import { Button } from './ui/button';
+import Link from 'next/link';
 
 export function Hero() {
   const [currentText, setCurrentText] = useState(0);
@@ -77,19 +78,23 @@ export function Hero() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
           <Button
+            asChild
             size="lg"
             className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
-            Começar Projeto
-            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+            <Link href="/produtos">
+              Ver Produtos
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
           </Button>
 
           <Button
+            asChild
             variant="outline"
             size="lg"
             className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
           >
-            Ver Portfólio
+            <Link href={'/sobre-nos'}>Sobre Nós</Link>
           </Button>
         </div>
 

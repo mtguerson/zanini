@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
+import { Button } from './ui/button';
+import Link from 'next/link';
 
 interface PromotionalItem {
   id: number;
@@ -124,9 +126,9 @@ export function PromotionalShowcase() {
 
               {/* CTA */}
               <div className="pt-4 justify-center flex md:justify-start">
-                <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  Explore Nossa Coleção
-                </button>
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground p-6 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <Link href="/produtos">Explore Nossa Coleção</Link>
+                </Button>
               </div>
             </div>
 
@@ -173,7 +175,7 @@ export function PromotionalShowcase() {
               <button
                 key={item.id}
                 onClick={() => setCurrentIndex(index)}
-                className={`group relative overflow-hidden rounded-xl transition-all duration-300 ${
+                className={`group relative overflow-hidden p-2 rounded-xl transition-all duration-300 ${
                   index === currentIndex
                     ? 'ring-4 ring-primary shadow-lg scale-105'
                     : 'hover:scale-105 hover:shadow-md opacity-70 hover:opacity-100'
@@ -185,17 +187,10 @@ export function PromotionalShowcase() {
                     alt={item.title}
                     quality={100}
                     fill
-                    className="transition-transform duration-300"
+                    className="transition-transform object-cover duration-300"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
-
-                {/* Indicador Ativo */}
-                {index === currentIndex && (
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                    <div className="w-2 h-2 bg-primary-foreground rounded-full"></div>
-                  </div>
-                )}
               </button>
             ))}
           </div>
