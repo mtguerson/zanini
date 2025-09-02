@@ -16,7 +16,7 @@ export async function BestSellingProducts() {
   const bestSellingProducts = await getProducts({ sortKey: 'BEST_SELLING' });
 
   return (
-    <div className="flex flex-col mx-auto p-12 gap-4 max-w-7xl justify-center items-center cursor-pointer">
+    <div className="flex flex-col mx-auto p-12 gap-4 max-w-7xl justify-center items-center">
       <Badge
         variant="outline"
         className="flex items-center gap-2 border-primary text-base bg-primary/10 text-primary"
@@ -48,8 +48,8 @@ export async function BestSellingProducts() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="cursor-pointer" />
+        <CarouselNext className="cursor-pointer" />
       </Carousel>
 
       <Button className="mt-6" size="lg" asChild>
