@@ -1,22 +1,33 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import br from '@/assets/brazil-flag.gif';
 import { SearchInput } from './ui/search-input';
 import { Menu, X } from 'lucide-react';
 import { ShoppingCart } from './shopping-cart';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'motion/react';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const path = usePathname();
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
 
-  const path = usePathname();
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
+
+  // Fecha o menu quando a rota muda
+  useEffect(() => {
+    if (isMenuOpen) {
+      closeMenu();
+    }
+  }, [path]);
 
   return (
     <header className="relative">
@@ -92,32 +103,80 @@ export function Header() {
       </div>
 
       {/* Menu mobile */}
-      {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-50">
-          <div className="px-4 py-4 space-y-4">
-            {/* Search Input mobile */}
-            <div className="sm:hidden">
-              <SearchInput />
-            </div>
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{
+              duration: 0.3,
+              ease: 'easeInOut',
+              type: 'tween',
+            }}
+            className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-50"
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.2 }}
+              className="px-4 py-4 space-y-4"
+            >
+              {/* Search Input mobile */}
+              <div className="sm:hidden">
+                <SearchInput />
+              </div>
 
-            {/* Navegação mobile */}
-            <nav className="flex flex-col space-y-3">
-              <Link
-                href="/produtos"
-                className="text-base hover:text-primary cursor-pointer transition-colors py-2 border-b border-gray-100"
-              >
-                Produtos
-              </Link>
-              <h2 className="text-base hover:text-primary cursor-pointer transition-colors py-2 border-b border-gray-100">
-                Categorias
-              </h2>
-              <h2 className="text-base hover:text-primary cursor-pointer transition-colors py-2 border-b border-gray-100">
-                Sobre
-              </h2>
-            </nav>
-          </div>
-        </div>
-      )}
+              {/* Navegação mobile */}
+              <nav className="flex flex-col space-y-3">
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.2 }}
+                >
+                  <Link
+                    href="/produtos"
+                    className={`text-base hover:text-primary cursor-pointer transition-all duration-200 py-2 border-b border-gray-100 ${
+                      path === '/produtos'
+                        ? 'text-primary font-semibold'
+                        : 'hover:bg-gray-50 rounded-md px-2 -mx-2'
+                    }`}
+                    onClick={closeMenu}
+                  >
+                    Produtos
+                  </Link>
+                </motion.div>
+
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.25, duration: 0.2 }}
+                >
+                  <button
+                    className="text-base hover:text-primary text-gray-300 cursor-pointer transition-all duration-200 py-1 border-b border-gray-100 hover:bg-gray-50 rounded-md px-2 -mx-2 text-left"
+                    onClick={closeMenu}
+                  >
+                    Categorias
+                  </button>
+                </motion.div>
+
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.2 }}
+                >
+                  <button
+                    className="text-base text-gray-300 hover:text-primary cursor-pointer transition-all duration-200 py-1 border-b border-gray-100 hover:bg-gray-50 rounded-md px-2 -mx-2 text-left"
+                    onClick={closeMenu}
+                  >
+                    Sobre
+                  </button>
+                </motion.div>
+              </nav>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
