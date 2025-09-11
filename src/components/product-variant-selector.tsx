@@ -75,9 +75,6 @@ export function ProductVariantSelector({
             <label className="text-sm font-medium text-foreground">
               {option.name}
             </label>
-            <span className="text-sm text-muted-foreground">
-              {selectedOptions[option.name] || 'Selecione'}
-            </span>
           </div>
 
           <div className="flex flex-wrap gap-2">
@@ -119,9 +116,6 @@ export function ProductVariantSelector({
           <h4 className="font-medium text-foreground">Variante Selecionada</h4>
           <div className="text-sm text-muted-foreground space-y-1">
             <p>
-              <strong>SKU:</strong> {selectedVariant.id.split('/').pop()}
-            </p>
-            <p>
               <strong>Disponibilidade:</strong>{' '}
               <span
                 className={cn(
@@ -138,7 +132,7 @@ export function ProductVariantSelector({
             </p>
             {selectedVariant.selectedOptions.length > 0 && (
               <div>
-                <strong>Opções:</strong>{' '}
+                <strong>Opção:</strong>{' '}
                 {selectedVariant.selectedOptions.map((option, index) => (
                   <span key={option.name}>
                     {option.name}: {option.value}

@@ -22,8 +22,8 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const originalPrice = parseFloat(
     selectedVariant?.price.amount || product.priceRange.maxVariantPrice.amount
   );
-  const discountedPrice = originalPrice * 0.85; // 15% de desconto
-  const savings = originalPrice - discountedPrice;
+  const augmentedPrice = originalPrice * 1.15; // a mais
+  const savings = augmentedPrice - originalPrice;
 
   function handleQuantityChange(newQuantity: number) {
     if (newQuantity >= 1) {
@@ -36,7 +36,13 @@ export function ProductInfo({ product }: ProductInfoProps) {
 
     const cartProduct = {
       ...product,
-      quantity: quantity,
+      id: selectedVariant.id,
+      variants: [selectedVariant],
+      priceRange: {
+        maxVariantPrice: selectedVariant.price,
+        minVariantPrice: selectedVariant.price,
+      },
+      quantity,
     };
     addProduct(cartProduct);
 
@@ -85,14 +91,14 @@ export function ProductInfo({ product }: ProductInfoProps) {
       {/* Preços */}
       <div className="space-y-2">
         <div className="flex items-baseline gap-3">
-          <span className="text-3xl font-bold text-primary">
-            {formatPrice(discountedPrice.toString())}
-          </span>
           {savings > 0 && (
-            <span className="text-lg text-muted-foreground line-through">
+            <span className="text-3xl font-bold text-primary">
               {formatPrice(originalPrice.toString())}
             </span>
           )}
+          <span className="text-lg text-muted-foreground line-through">
+            {formatPrice(augmentedPrice.toString())}
+          </span>
         </div>
         {savings > 0 && (
           <p className="text-sm text-green-600 font-medium">
@@ -100,7 +106,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
           </p>
         )}
         <p className="text-sm text-muted-foreground">
-          ou 12x de {formatPrice((discountedPrice / 12).toString())} sem juros
+          ou 12x de {formatPrice((originalPrice / 12).toString())} sem juros
         </p>
       </div>
 
