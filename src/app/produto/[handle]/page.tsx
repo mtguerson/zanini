@@ -1,8 +1,7 @@
 import { getProduct } from '@/lib/shopify';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { ProductGallery } from '@/components/product-gallery';
-import { ProductInfo } from '@/components/product-info';
+import { ProductDetails } from '@/components/product-details';
 
 type ProductPageParams = {
   params: Promise<{
@@ -59,15 +58,7 @@ export default async function ProductPage({ params }: ProductPageParams) {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          <div className="order-1">
-            <ProductGallery images={product.images} title={product.title} />
-          </div>
-
-          <div className="order-2">
-            <ProductInfo product={product} />
-          </div>
-        </div>
+        <ProductDetails product={product} />
       </div>
     </div>
   );

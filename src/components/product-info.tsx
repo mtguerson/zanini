@@ -1,6 +1,6 @@
 'use client';
 
-import { Product } from '@/lib/shopify/types';
+import { Product, ProductVariant } from '@/lib/shopify/types';
 import { formatPrice } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -11,10 +11,17 @@ import { ProductVariantSelector } from './product-variant-selector';
 
 interface ProductInfoProps {
   product: Product;
+  controlledVariant?: ProductVariant;
+  onVariantChange?: (variant: ProductVariant) => void;
 }
 
-export function ProductInfo({ product }: ProductInfoProps) {
-  const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
+export function ProductInfo({
+  product,
+  controlledVariant,
+  onVariantChange,
+}: ProductInfoProps) {
+  const [internalVariant, setInternalVariant] = useState(product.variants[0]);
+  const selectedVariant = controlledVariant || internalVariant;
   const [quantity, setQuantity] = useState(1);
   const { addProduct, toggleCart } = useCart();
 
@@ -38,6 +45,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
       ...product,
       id: selectedVariant.id,
       variants: [selectedVariant],
+      featuredImage: selectedVariant.image || product.featuredImage,
       priceRange: {
         maxVariantPrice: selectedVariant.price,
         minVariantPrice: selectedVariant.price,
@@ -47,6 +55,14 @@ export function ProductInfo({ product }: ProductInfoProps) {
     addProduct(cartProduct);
 
     toggleCart();
+  }
+
+  function handleVariantChange(variant: ProductVariant) {
+    if (onVariantChange) {
+      onVariantChange(variant);
+    } else {
+      setInternalVariant(variant);
+    }
   }
 
   return (
@@ -125,7 +141,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
         <ProductVariantSelector
           product={product}
           selectedVariant={selectedVariant}
-          onVariantChange={setSelectedVariant}
+          onVariantChange={handleVariantChange}
         />
       )}
 
