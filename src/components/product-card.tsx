@@ -110,8 +110,9 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
 
         {/* Preço */}
         <div className="flex items-center gap-2">
+          <p className="text-sm text-muted-foreground">a partir de</p>
           <span className="text-lg font-bold text-primary">
-            {formatPrice(product.priceRange.maxVariantPrice.amount)}
+            {formatPrice(product.priceRange.minVariantPrice.amount)}
           </span>
         </div>
 

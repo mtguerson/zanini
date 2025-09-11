@@ -1,6 +1,6 @@
 'use client';
 
-import { Product } from '@/lib/shopify/types';
+import { Product, ProductVariant } from '@/lib/shopify/types';
 import { formatPrice } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -11,10 +11,17 @@ import { ProductVariantSelector } from './product-variant-selector';
 
 interface ProductInfoProps {
   product: Product;
+  controlledVariant?: ProductVariant;
+  onVariantChange?: (variant: ProductVariant) => void;
 }
 
-export function ProductInfo({ product }: ProductInfoProps) {
-  const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
+export function ProductInfo({
+  product,
+  controlledVariant,
+  onVariantChange,
+}: ProductInfoProps) {
+  const [internalVariant, setInternalVariant] = useState(product.variants[0]);
+  const selectedVariant = controlledVariant || internalVariant;
   const [quantity, setQuantity] = useState(1);
   const { addProduct, toggleCart } = useCart();
 
@@ -22,8 +29,8 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const originalPrice = parseFloat(
     selectedVariant?.price.amount || product.priceRange.maxVariantPrice.amount
   );
-  const discountedPrice = originalPrice * 0.85; // 15% de desconto
-  const savings = originalPrice - discountedPrice;
+  const augmentedPrice = originalPrice * 1.15; // a mais
+  const savings = augmentedPrice - originalPrice;
 
   function handleQuantityChange(newQuantity: number) {
     if (newQuantity >= 1) {
@@ -36,11 +43,26 @@ export function ProductInfo({ product }: ProductInfoProps) {
 
     const cartProduct = {
       ...product,
-      quantity: quantity,
+      id: selectedVariant.id,
+      variants: [selectedVariant],
+      featuredImage: selectedVariant.image || product.featuredImage,
+      priceRange: {
+        maxVariantPrice: selectedVariant.price,
+        minVariantPrice: selectedVariant.price,
+      },
+      quantity,
     };
     addProduct(cartProduct);
 
     toggleCart();
+  }
+
+  function handleVariantChange(variant: ProductVariant) {
+    if (onVariantChange) {
+      onVariantChange(variant);
+    } else {
+      setInternalVariant(variant);
+    }
   }
 
   return (
@@ -85,14 +107,14 @@ export function ProductInfo({ product }: ProductInfoProps) {
       {/* Preços */}
       <div className="space-y-2">
         <div className="flex items-baseline gap-3">
-          <span className="text-3xl font-bold text-primary">
-            {formatPrice(discountedPrice.toString())}
-          </span>
           {savings > 0 && (
-            <span className="text-lg text-muted-foreground line-through">
+            <span className="text-3xl font-bold text-primary">
               {formatPrice(originalPrice.toString())}
             </span>
           )}
+          <span className="text-lg text-muted-foreground line-through">
+            {formatPrice(augmentedPrice.toString())}
+          </span>
         </div>
         {savings > 0 && (
           <p className="text-sm text-green-600 font-medium">
@@ -100,7 +122,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
           </p>
         )}
         <p className="text-sm text-muted-foreground">
-          ou 12x de {formatPrice((discountedPrice / 12).toString())} sem juros
+          ou 12x de {formatPrice((originalPrice / 12).toString())} sem juros
         </p>
       </div>
 
@@ -119,7 +141,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
         <ProductVariantSelector
           product={product}
           selectedVariant={selectedVariant}
-          onVariantChange={setSelectedVariant}
+          onVariantChange={handleVariantChange}
         />
       )}
 
