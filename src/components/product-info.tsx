@@ -8,6 +8,8 @@ import { ShoppingCart, Share2, Truck, Shield, RotateCcw } from 'lucide-react';
 import { useState } from 'react';
 import { useCart } from '@/hooks/use-cart';
 import { ProductVariantSelector } from './product-variant-selector';
+import FileUpload from './file-upload';
+import { toast } from 'sonner';
 
 interface ProductInfoProps {
   product: Product;
@@ -23,6 +25,7 @@ export function ProductInfo({
   const [internalVariant, setInternalVariant] = useState(product.variants[0]);
   const selectedVariant = controlledVariant || internalVariant;
   const [quantity, setQuantity] = useState(1);
+  const [customImageUrl, setCustomImageUrl] = useState<string | null>(null);
   const { addProduct, toggleCart } = useCart();
 
   // Calcula preço com desconto (exemplo: 15% off)
@@ -51,6 +54,7 @@ export function ProductInfo({
         minVariantPrice: selectedVariant.price,
       },
       quantity,
+      customImageUrl: customImageUrl || undefined,
     };
     addProduct(cartProduct);
 
@@ -143,6 +147,23 @@ export function ProductInfo({
           selectedVariant={selectedVariant}
           onVariantChange={handleVariantChange}
         />
+      )}
+
+      {product.metafield?.value && (
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-foreground">
+            Upload de Imagem
+          </label>
+          <FileUpload
+            onUploadSuccess={(url) => {
+              setCustomImageUrl(url);
+              toast.success('Upload realizado com sucesso');
+            }}
+            onUploadError={() => {
+              toast.error('Erro no upload');
+            }}
+          />
+        </div>
       )}
 
       {/* Quantidade */}

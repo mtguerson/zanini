@@ -7,6 +7,9 @@ export const productFragment = /* GraphQl */ `
     handle
     availableForSale
     title
+    metafield(namespace: "custom", key: "personalizavel") {
+      value
+    }
     description
     descriptionHtml
     options {

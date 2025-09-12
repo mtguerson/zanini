@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/header';
 import { CartProvider } from '@/contexts/cart';
+import { Toaster } from '@/components/ui/sonner';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -28,6 +29,7 @@ export default function RootLayout({
           <Header />
           {children}
         </CartProvider>
+        <Toaster richColors />
       </body>
     </html>
   );

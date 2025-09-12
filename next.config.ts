@@ -1,3 +1,4 @@
+import { env } from '@/env';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
@@ -6,6 +7,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn.shopify.com',
+      },
+      {
+        protocol: 'https',
+        hostname: env.CLOUDFLARE_PUBLIC_URL,
       },
     ],
   },

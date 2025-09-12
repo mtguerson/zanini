@@ -65,6 +65,9 @@ export type ShopifyProduct = {
   handle: string;
   availableForSale: boolean;
   title: string;
+  metafield: {
+    value?: boolean;
+  };
   description: string;
   descriptionHtml: string;
   options: ProductOption[];
