@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { useCart } from '@/hooks/use-cart';
 import { ProductVariantSelector } from './product-variant-selector';
 import FileUpload from './file-upload';
+import { toast } from 'sonner';
 
 interface ProductInfoProps {
   product: Product;
@@ -151,7 +152,14 @@ export function ProductInfo({
           <label className="text-sm font-medium text-foreground">
             Upload de Imagem
           </label>
-          <FileUpload />
+          <FileUpload
+            onUploadSuccess={() => {
+              toast.success('Upload realizado com sucesso');
+            }}
+            onUploadError={() => {
+              toast.error('Erro no upload');
+            }}
+          />
         </div>
       )}
 
