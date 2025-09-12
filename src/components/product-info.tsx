@@ -8,6 +8,7 @@ import { ShoppingCart, Share2, Truck, Shield, RotateCcw } from 'lucide-react';
 import { useState } from 'react';
 import { useCart } from '@/hooks/use-cart';
 import { ProductVariantSelector } from './product-variant-selector';
+import FileUpload from './file-upload';
 
 interface ProductInfoProps {
   product: Product;
@@ -143,6 +144,15 @@ export function ProductInfo({
           selectedVariant={selectedVariant}
           onVariantChange={handleVariantChange}
         />
+      )}
+
+      {product.metafield?.value && (
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-foreground">
+            Upload de Imagem
+          </label>
+          <FileUpload />
+        </div>
       )}
 
       {/* Quantidade */}
