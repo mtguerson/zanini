@@ -21,7 +21,7 @@ export async function uploadFile(file: File) {
       })
     );
 
-    const url = `${env.CLOUDFLARE_PUBLIC_URL}/${uniqueFileName}`;
+    const url = `https://${env.CLOUDFLARE_PUBLIC_URL}/${uniqueFileName}`;
 
     return {
       url,

@@ -41,6 +41,17 @@ export function CartItem({ item }: CartItemProps) {
           sizes="64px"
           className="object-cover"
         />
+        {item.customImageUrl && (
+          <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full overflow-hidden border-2 border-background shadow-sm">
+            <Image
+              src={item.customImageUrl}
+              alt="Imagem personalizada"
+              fill
+              sizes="24px"
+              className="object-cover"
+            />
+          </div>
+        )}
       </div>
 
       {/* Informações do Produto */}

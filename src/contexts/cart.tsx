@@ -5,6 +5,7 @@ import { createContext, ReactNode, useState, useEffect } from 'react';
 
 export interface CartProduct extends Product {
   quantity: number;
+  customImageUrl?: string;
 }
 
 interface ICartContext {

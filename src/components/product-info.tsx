@@ -25,6 +25,7 @@ export function ProductInfo({
   const [internalVariant, setInternalVariant] = useState(product.variants[0]);
   const selectedVariant = controlledVariant || internalVariant;
   const [quantity, setQuantity] = useState(1);
+  const [customImageUrl, setCustomImageUrl] = useState<string | null>(null);
   const { addProduct, toggleCart } = useCart();
 
   // Calcula preço com desconto (exemplo: 15% off)
@@ -53,6 +54,7 @@ export function ProductInfo({
         minVariantPrice: selectedVariant.price,
       },
       quantity,
+      customImageUrl: customImageUrl || undefined,
     };
     addProduct(cartProduct);
 
@@ -153,7 +155,8 @@ export function ProductInfo({
             Upload de Imagem
           </label>
           <FileUpload
-            onUploadSuccess={() => {
+            onUploadSuccess={(url) => {
+              setCustomImageUrl(url);
               toast.success('Upload realizado com sucesso');
             }}
             onUploadError={() => {
