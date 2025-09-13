@@ -13,12 +13,31 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { formatPrice } from '@/lib/utils';
 import { CartItem } from './cart-item';
-import { ShoppingBag, ShoppingCartIcon, Trash2 } from 'lucide-react';
+import { Loader2, ShoppingBag, ShoppingCartIcon, Trash2 } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
+import { createCartAction } from '@/actions/create-cart';
+import { useMutation } from '@tanstack/react-query';
 
 export function ShoppingCart() {
   const { products, total, totalPrice, clearCart, isOpen, toggleCart } =
     useCart();
+
+  const { mutateAsync: createCart, isPending } = useMutation({
+    mutationFn: () =>
+      createCartAction({
+        lines: products.map((product) => ({
+          quantity: product.quantity,
+          merchandiseId: product.id,
+        })),
+      }),
+    onSuccess: (data) => {
+      if (!data) {
+        return;
+      }
+
+      window.location.href = data;
+    },
+  });
 
   // Calcular frete (exemplo: grátis acima de R$ 199, senão R$ 15)
   const shippingThreshold = 199;
@@ -119,8 +138,17 @@ export function ShoppingCart() {
 
                 {/* Botões de Ação */}
                 <div className="space-y-2">
-                  <Button className="w-full" size="lg">
-                    Finalizar Compra
+                  <Button
+                    className="w-full"
+                    size="lg"
+                    disabled={isPending}
+                    onClick={() => createCart()}
+                  >
+                    {isPending ? (
+                      <Loader2 className="animate-spin" />
+                    ) : (
+                      'Finalizar Compra'
+                    )}
                   </Button>
 
                   <div className="flex gap-2">

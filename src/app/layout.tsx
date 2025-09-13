@@ -4,6 +4,7 @@ import './globals.css';
 import { Header } from '@/components/header';
 import { CartProvider } from '@/contexts/cart';
 import { Toaster } from '@/components/ui/sonner';
+import { ReactQueryProvider } from '@/providers/react-query';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,10 +26,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`antialiased ${inter.className}`}>
-        <CartProvider>
-          <Header />
-          {children}
-        </CartProvider>
+        <ReactQueryProvider>
+          <CartProvider>
+            <Header />
+            {children}
+          </CartProvider>
+        </ReactQueryProvider>
         <Toaster richColors />
       </body>
     </html>
