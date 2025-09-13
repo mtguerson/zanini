@@ -44,6 +44,14 @@ export function ProductInfo({
           {
             merchandiseId: selectedVariant.id,
             quantity,
+            attributes: customImageUrl
+              ? [
+                  {
+                    key: 'Imagem',
+                    value: customImageUrl,
+                  },
+                ]
+              : undefined,
           },
         ],
       }),

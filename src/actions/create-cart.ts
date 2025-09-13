@@ -6,14 +6,16 @@ interface CreateCartActionProps {
   lines: {
     quantity: number;
     merchandiseId: string;
+    attributes?: {
+      key: string;
+      value: string;
+    }[];
   }[];
 }
 
 export async function createCartAction({ lines }: CreateCartActionProps) {
   try {
     const cart = await createCart({ lines });
-
-    console.log(cart);
 
     if (cart) {
       const checkoutUrl = await getCheckoutUrl(cart.id);

@@ -28,6 +28,14 @@ export function ShoppingCart() {
         lines: products.map((product) => ({
           quantity: product.quantity,
           merchandiseId: product.id,
+          attributes: product.customImageUrl
+            ? [
+                {
+                  key: 'Imagem',
+                  value: product.customImageUrl,
+                },
+              ]
+            : undefined,
         })),
       }),
     onSuccess: (data) => {

@@ -152,6 +152,7 @@ export type CartLine = {
       images: Connection<Image>;
     };
   };
+  attributes: CartAttribute[];
 };
 
 export type CartCost = {
