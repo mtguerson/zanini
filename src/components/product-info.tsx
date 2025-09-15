@@ -4,10 +4,21 @@ import { Product, ProductVariant } from '@/lib/shopify/types';
 import { formatPrice } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ShoppingCart, Share2, Truck, Shield, RotateCcw } from 'lucide-react';
+import {
+  ShoppingCart,
+  Share2,
+  Truck,
+  Shield,
+  RotateCcw,
+  Loader2,
+} from 'lucide-react';
 import { useState } from 'react';
 import { useCart } from '@/hooks/use-cart';
 import { ProductVariantSelector } from './product-variant-selector';
+import FileUpload from './file-upload';
+import { toast } from 'sonner';
+import { createCartAction } from '@/actions/create-cart';
+import { useMutation } from '@tanstack/react-query';
 
 interface ProductInfoProps {
   product: Product;
@@ -23,7 +34,35 @@ export function ProductInfo({
   const [internalVariant, setInternalVariant] = useState(product.variants[0]);
   const selectedVariant = controlledVariant || internalVariant;
   const [quantity, setQuantity] = useState(1);
+  const [customImageUrl, setCustomImageUrl] = useState<string | null>(null);
   const { addProduct, toggleCart } = useCart();
+
+  const { mutateAsync: createCart, isPending } = useMutation({
+    mutationFn: () =>
+      createCartAction({
+        lines: [
+          {
+            merchandiseId: selectedVariant.id,
+            quantity,
+            attributes: customImageUrl
+              ? [
+                  {
+                    key: 'Imagem',
+                    value: customImageUrl,
+                  },
+                ]
+              : undefined,
+          },
+        ],
+      }),
+    onSuccess: (data) => {
+      if (!data) {
+        return;
+      }
+
+      window.location.href = data;
+    },
+  });
 
   // Calcula preço com desconto (exemplo: 15% off)
   const originalPrice = parseFloat(
@@ -51,6 +90,7 @@ export function ProductInfo({
         minVariantPrice: selectedVariant.price,
       },
       quantity,
+      customImageUrl: customImageUrl || undefined,
     };
     addProduct(cartProduct);
 
@@ -145,6 +185,23 @@ export function ProductInfo({
         />
       )}
 
+      {product.metafield?.value && (
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-foreground">
+            Upload de Imagem
+          </label>
+          <FileUpload
+            onUploadSuccess={(url) => {
+              setCustomImageUrl(url);
+              toast.success('Upload realizado com sucesso');
+            }}
+            onUploadError={() => {
+              toast.error('Erro no upload');
+            }}
+          />
+        </div>
+      )}
+
       {/* Quantidade */}
       <div className="space-y-2">
         <label className="text-sm font-medium text-foreground">
@@ -185,11 +242,13 @@ export function ProductInfo({
         </Button>
 
         <Button
+          disabled={isPending}
+          onClick={() => createCart()}
           variant="outline"
           className="w-full h-12 text-base font-semibold"
           size="lg"
         >
-          Comprar Agora
+          {isPending ? <Loader2 className="animate-spin" /> : 'Comprar Agora'}
         </Button>
       </div>
 

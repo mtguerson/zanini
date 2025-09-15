@@ -70,7 +70,7 @@ export function ProductGallery({
             alt={currentImage.altText || title}
             fill
             quality={100}
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="transition-transform duration-300 group-hover:scale-105"
             priority
           />
 

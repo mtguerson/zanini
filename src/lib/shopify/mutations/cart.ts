@@ -25,6 +25,10 @@ export const cartCreateMutation = `
                   }
                 }
               }
+              attributes {
+                key
+                value
+              }
             }
           }
         }
