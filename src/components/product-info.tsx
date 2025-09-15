@@ -185,7 +185,7 @@ export function ProductInfo({
         />
       )}
 
-      {product.metafield?.value && (
+      {product.metafield?.value === 'true' && (
         <div className="space-y-2">
           <label className="text-sm font-medium text-foreground">
             Upload de Imagem

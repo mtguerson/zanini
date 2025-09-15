@@ -66,7 +66,7 @@ export type ShopifyProduct = {
   availableForSale: boolean;
   title: string;
   metafield: {
-    value?: boolean;
+    value?: 'true' | 'false';
   };
   description: string;
   descriptionHtml: string;
