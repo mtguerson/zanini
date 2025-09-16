@@ -66,9 +66,16 @@ export function Header() {
             >
               Produtos
             </Link>
-            <h2 className="text-sm hover:underline cursor-pointer transition-colors text-gray-300">
+            <Link
+              href="/categorias"
+              className={
+                path === '/categorias'
+                  ? 'text-primary font-semibold underline underline-offset-2'
+                  : 'hover:underline transition-colors underline-offset-2'
+              }
+            >
               Categorias
-            </h2>
+            </Link>
             <h2 className="text-sm hover:underline cursor-pointer transition-colors text-gray-300">
               Sobre
             </h2>
