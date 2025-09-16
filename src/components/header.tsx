@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import br from '@/assets/brazil-flag.gif';
 import { SearchInput } from './ui/search-input';
 import { Menu, X } from 'lucide-react';
@@ -79,7 +79,9 @@ export function Header() {
         <div className="flex gap-2 sm:gap-4 items-center">
           {/* Search Input - oculto em mobile muito pequeno */}
           <div className="hidden sm:block">
-            <SearchInput />
+            <Suspense>
+              <SearchInput />
+            </Suspense>
           </div>
 
           {/* Carrinho */}
@@ -124,7 +126,9 @@ export function Header() {
             >
               {/* Search Input mobile */}
               <div className="sm:hidden">
-                <SearchInput />
+                <Suspense>
+                  <SearchInput />
+                </Suspense>
               </div>
 
               {/* Navegação mobile */}
