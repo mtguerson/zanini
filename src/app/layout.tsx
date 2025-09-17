@@ -5,6 +5,7 @@ import { Header } from '@/components/header';
 import { CartProvider } from '@/contexts/cart';
 import { Toaster } from '@/components/ui/sonner';
 import { ReactQueryProvider } from '@/providers/react-query';
+import { Footer } from '@/components/footer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function RootLayout({
           <CartProvider>
             <Header />
             {children}
+            <Footer />
           </CartProvider>
         </ReactQueryProvider>
         <Toaster richColors />
