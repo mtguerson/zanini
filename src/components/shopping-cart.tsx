@@ -47,11 +47,6 @@ export function ShoppingCart() {
     },
   });
 
-  // Calcular frete (exemplo: grátis acima de R$ 199, senão R$ 15)
-  const shippingThreshold = 199;
-  const shippingCost = totalPrice >= shippingThreshold ? 0 : 15;
-  const finalTotal = totalPrice + shippingCost;
-
   return (
     <Sheet open={isOpen} onOpenChange={toggleCart}>
       <SheetTrigger asChild>
@@ -114,34 +109,6 @@ export function ShoppingCart() {
                       {formatPrice(totalPrice.toString())}
                     </span>
                   </div>
-
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Frete:</span>
-                    <span className="font-medium">
-                      {shippingCost === 0 ? (
-                        <span className="text-green-600">Grátis</span>
-                      ) : (
-                        formatPrice(shippingCost.toString())
-                      )}
-                    </span>
-                  </div>
-
-                  {totalPrice < shippingThreshold && (
-                    <div className="text-xs text-muted-foreground">
-                      Faltam{' '}
-                      {formatPrice((shippingThreshold - totalPrice).toString())}{' '}
-                      para frete grátis
-                    </div>
-                  )}
-
-                  <div className="border-t pt-2">
-                    <div className="flex justify-between text-base font-semibold">
-                      <span>Total:</span>
-                      <span className="text-primary">
-                        {formatPrice(finalTotal.toString())}
-                      </span>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Botões de Ação */}
@@ -176,13 +143,6 @@ export function ShoppingCart() {
                       <Trash2 className="h-4 w-4" />
                     </Button>
                   </div>
-                </div>
-
-                {/* Informações Adicionais */}
-                <div className="text-xs text-muted-foreground space-y-1 pt-2 border-t">
-                  <p>✓ Garantia de 1 ano</p>
-                  <p>✓ Troca grátis em até 30 dias</p>
-                  <p>✓ Pagamento 100% seguro</p>
                 </div>
               </div>
             </SheetFooter>

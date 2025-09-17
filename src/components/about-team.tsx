@@ -1,6 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Users, MessageCircle, Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 export function AboutTeam() {
@@ -107,19 +106,14 @@ export function AboutTeam() {
                     <div className="space-y-2">
                       <div className="flex items-center gap-3 text-sm text-muted-foreground">
                         <Mail className="w-4 h-4" />
-                        <span>contato@zanini.com.br</span>
+                        <span>zaninilaserdigital@gmail.com</span>
                       </div>
                       <div className="flex items-center gap-3 text-sm text-muted-foreground">
                         <Phone className="w-4 h-4" />
-                        <span>(11) 99999-9999</span>
+                        <span>(67) 99855-1446</span>
                       </div>
                     </div>
                   </div>
-
-                  <Button className="w-full">
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    Falar conosco
-                  </Button>
                 </CardContent>
               </Card>
             </div>
