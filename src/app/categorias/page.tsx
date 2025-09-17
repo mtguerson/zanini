@@ -13,8 +13,6 @@ export default async function CollectionsPage() {
 
   const collectionsWithoutAll = collections.slice(1);
 
-  console.log(collectionsWithoutAll);
-
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">

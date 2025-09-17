@@ -76,9 +76,16 @@ export function Header() {
             >
               Categorias
             </Link>
-            <h2 className="text-sm hover:underline cursor-pointer transition-colors text-gray-300">
+            <Link
+              href="/sobre-nos"
+              className={
+                path === '/sobre-nos'
+                  ? 'text-primary font-semibold underline underline-offset-2'
+                  : 'hover:underline transition-colors underline-offset-2'
+              }
+            >
               Sobre
-            </h2>
+            </Link>
           </nav>
         </div>
 
@@ -163,12 +170,17 @@ export function Header() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.25, duration: 0.2 }}
                 >
-                  <button
-                    className="text-base hover:text-primary text-gray-300 cursor-pointer transition-all duration-200 py-1 border-b border-gray-100 hover:bg-gray-50 rounded-md px-2 -mx-2 text-left"
+                  <Link
+                    href="/categorias"
+                    className={`text-base hover:text-primary cursor-pointer transition-all duration-200 py-2 border-b border-gray-100 ${
+                      path === '/categorias'
+                        ? 'text-primary font-semibold'
+                        : 'hover:bg-gray-50 rounded-md px-2 -mx-2'
+                    }`}
                     onClick={closeMenu}
                   >
                     Categorias
-                  </button>
+                  </Link>
                 </motion.div>
 
                 <motion.div
@@ -176,12 +188,17 @@ export function Header() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.2 }}
                 >
-                  <button
-                    className="text-base text-gray-300 hover:text-primary cursor-pointer transition-all duration-200 py-1 border-b border-gray-100 hover:bg-gray-50 rounded-md px-2 -mx-2 text-left"
+                  <Link
+                    href="/sobre-nos"
+                    className={`text-base hover:text-primary cursor-pointer transition-all duration-200 py-2 border-b border-gray-100 ${
+                      path === '/sobre-nos'
+                        ? 'text-primary font-semibold'
+                        : 'hover:bg-gray-50 rounded-md px-2 -mx-2'
+                    }`}
                     onClick={closeMenu}
                   >
                     Sobre
-                  </button>
+                  </Link>
                 </motion.div>
               </nav>
             </motion.div>
