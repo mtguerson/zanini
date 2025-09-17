@@ -7,7 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { Facebook, Instagram, Linkedin, Send, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Send } from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -64,10 +64,10 @@ export async function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Contato</h3>
             <address className="space-y-2 text-sm not-italic">
-              <p>Rua das Flores, 123</p>
-              <p>São Paulo, SP</p>
-              <p>Telefone: (11) 99999-9999</p>
-              <p>Email: contato@ecommerce.com</p>
+              <p>Av. Ângelo Antônio Gasparetto, 691</p>
+              <p>Chapadão do Sul, MS</p>
+              <p>Telefone: (67) 99855-1446</p>
+              <p>Email: zaninilaserdigital@gmail.com</p>
             </address>
           </div>
           <div className="relative">
@@ -81,7 +81,13 @@ export async function Footer() {
                       size="icon"
                       className="rounded-full"
                     >
-                      <Facebook className="h-4 w-4" />
+                      <a
+                        href="https://www.facebook.com/zaninicv"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Facebook className="h-4 w-4" />
+                      </a>
                       <span className="sr-only">Facebook</span>
                     </Button>
                   </TooltipTrigger>
@@ -98,46 +104,18 @@ export async function Footer() {
                       size="icon"
                       className="rounded-full"
                     >
-                      <Twitter className="h-4 w-4" />
-                      <span className="sr-only">Twitter</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Siga-nos no Twitter</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="rounded-full"
-                    >
-                      <Instagram className="h-4 w-4" />
-                      <span className="sr-only">Instagram</span>
+                      <a
+                        href="https://www.instagram.com/cvzanini/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Instagram className="h-4 w-4" />
+                        <span className="sr-only">Instagram</span>
+                      </a>
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>Siga-nos no Instagram</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="rounded-full"
-                    >
-                      <Linkedin className="h-4 w-4" />
-                      <span className="sr-only">LinkedIn</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Conecte-se conosco no LinkedIn</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -148,17 +126,6 @@ export async function Footer() {
           <p className="text-sm text-muted-foreground">
             © 2025 Zanini Comunicação Visual. Todos os direitos reservados.
           </p>
-          <nav className="flex gap-4 text-sm">
-            <a href="#" className="transition-colors hover:text-primary">
-              Política de privacidade
-            </a>
-            <a href="#" className="transition-colors hover:text-primary">
-              Termos de serviço
-            </a>
-            <a href="#" className="transition-colors hover:text-primary">
-              Configurações de cookies
-            </a>
-          </nav>
         </div>
       </div>
     </footer>
