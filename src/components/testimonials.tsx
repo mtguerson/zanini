@@ -22,8 +22,8 @@ const reviews: Review[] = [
       'Produto incrível! A qualidade superou minhas expectativas. Recomendo muito!',
     photo: 'https://avatar.vercel.sh/maria',
     rating: 5,
-    productName: 'Ocean Blue Shirt',
-    productHandle: 'ocean-blue-shirt',
+    productName: 'Troféu em Acrílico 3mm',
+    productHandle: 'trofeu-em-acrilico-3mm',
   },
   {
     id: '2',
@@ -32,8 +32,8 @@ const reviews: Review[] = [
       'Excelente custo-benefício. Material de primeira qualidade e entrega rápida.',
     photo: 'https://avatar.vercel.sh/joao',
     rating: 5,
-    productName: 'Black Leather Bag',
-    productHandle: 'black-leather-bag',
+    productName: 'Porta Retrato Mãe',
+    productHandle: 'porta-retrato-mae',
   },
   {
     id: '3',
@@ -42,8 +42,8 @@ const reviews: Review[] = [
       'Adorei o produto! Chegou antes do prazo e exatamente como mostrado nas fotos.',
     photo: 'https://avatar.vercel.sh/ana',
     rating: 5,
-    productName: 'Floral White Top',
-    productHandle: 'floral-white-top',
+    productName: 'Enfeite em MDF',
+    productHandle: 'enfeite-em-mdf',
   },
   {
     id: '4',
@@ -52,8 +52,8 @@ const reviews: Review[] = [
       'Qualidade excepcional! Já é a segunda vez que compro e sempre fico satisfeito.',
     photo: 'https://avatar.vercel.sh/pedro',
     rating: 5,
-    productName: 'Yellow Woll Jumper',
-    productHandle: 'yellow-woll-jumper',
+    productName: 'Nossa Senhora Aparecida',
+    productHandle: 'nossa-senhora-aparecida',
   },
   {
     id: '5',
@@ -62,8 +62,8 @@ const reviews: Review[] = [
       'Produto maravilhoso! O tecido é muito confortável e o caimento perfeito.',
     rating: 4,
     photo: 'https://avatar.vercel.sh/carla',
-    productName: 'Led High Tops',
-    productHandle: 'led-high-tops',
+    productName: 'Medalha São Bento',
+    productHandle: 'medalha-sao-bento',
   },
   {
     id: '6',
@@ -72,8 +72,8 @@ const reviews: Review[] = [
       'Muito bom! Produto de qualidade e atendimento excelente. Voltarei a comprar.',
     photo: 'https://avatar.vercel.sh/roberto',
     rating: 5,
-    productName: 'Striped Skirt and Top',
-    productHandle: 'striped-skirt-and-top',
+    productName: 'Troféu Beach Tennis',
+    productHandle: 'trofeu-beach-tennis',
   },
 ];
 
@@ -160,7 +160,7 @@ export function TestImonials() {
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4 mb-12">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl bg-gradient-to-r text-center from-primary to-sidebar-foreground bg-clip-text text-transparent font-bold mb-4">
             O que nossos clientes dizem
           </h2>
           <p className="text-muted-foreground text-lg">

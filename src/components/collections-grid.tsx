@@ -1,10 +1,9 @@
 'use client';
 
 import { Collection } from '@/lib/shopify/types';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
-import { ArrowRight, Package } from 'lucide-react';
+import Image from 'next/image';
+import { Package } from 'lucide-react';
 
 interface CollectionsGridProps {
   collections: Collection[];
@@ -21,45 +20,31 @@ export function CollectionsGrid({ collections }: CollectionsGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
       {collections.map((collection) => (
-        <Link key={collection.handle} href={collection.path}>
-          <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full">
-            <CardContent className="p-6 h-full flex flex-col">
-              <div className="space-y-4 flex-1">
-                <div className="flex items-start justify-between">
-                  <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {collection.title}
-                  </h3>
-                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                </div>
-
-                {collection.description && (
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                    {collection.description}
-                  </p>
-                )}
-
-                <div className="flex items-center gap-2">
-                  <Badge variant="secondary" className="text-xs">
-                    Categoria
-                  </Badge>
-                  {collection.handle === '' && (
-                    <Badge variant="outline" className="text-xs">
-                      Todos os produtos
-                    </Badge>
-                  )}
-                </div>
-              </div>
-
-              <div className="mt-4 pt-4 border-t border-border">
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
-                  <span>Explorar produtos</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+        <Link
+          key={collection.handle} 
+          href={collection.path}
+          className="group relative overflow-hidden rounded-2xl hover:scale-105 transition-transform duration-300"
+        >
+          {/* Imagem da Collection */}
+          <div className="relative aspect-[2/3] w-full overflow-hidden">
+            <Image 
+              src={collection.image?.url || "/placeholder.svg"} 
+              alt={collection.title} 
+              fill
+              className="object-cover group-hover:scale-110 transition-transform duration-500"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 16vw"
+            />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+          </div>
+          
+          {/* Botão/Label com o nome */}
+          <div className="absolute bottom-0 left-0 right-0 p-4">
+            <div className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-center py-3 px-4 rounded-xl transition-colors duration-200 shadow-lg">
+              {collection.title.toUpperCase()}
+            </div>
+          </div>
         </Link>
       ))}
     </div>
