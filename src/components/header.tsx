@@ -138,13 +138,6 @@ export function Header() {
               transition={{ delay: 0.1, duration: 0.2 }}
               className="px-4 py-4 space-y-4"
             >
-              {/* Search Input mobile */}
-              <div className="sm:hidden">
-                <Suspense>
-                  <SearchInput />
-                </Suspense>
-              </div>
-
               {/* Navegação mobile */}
               <nav className="flex flex-col space-y-3">
                 <motion.div
@@ -205,6 +198,12 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <div className='md:hidden flex w-full justify-center items-center mt-4'>
+        <Suspense>
+          <SearchInput />
+        </Suspense>
+      </div>
     </header>
   );
 }
