@@ -14,6 +14,15 @@ export const getCollectionsQuery = /* GraphQL */ `
   ${collectionFragment}
 `;
 
+export const getCollectionQuery = /* GraphQL */ `
+  query getCollection($handle: String!) {
+    collection(handle: $handle) {
+      ...collection
+    }
+  }
+  ${collectionFragment}
+`;
+
 export const getCollectionProductsQuery = /* GraphQL */ `
   query getCollectionProducts(
     $handle: String!

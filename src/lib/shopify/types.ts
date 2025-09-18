@@ -118,6 +118,15 @@ export type ShopifyProductsOperation = {
   };
 };
 
+export type ShopifyCollectionOperation = {
+  data: {
+    collection: ShopifyCollection;
+  };
+  variables: {
+    handle: string;
+  };
+};
+
 export type ShopifyCollectionProductsOperation = {
   data: {
     collection: {
