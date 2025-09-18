@@ -7,9 +7,6 @@ import { Badge } from '@/components/ui/badge';
 import {
   ShoppingCart,
   Share2,
-  Truck,
-  Shield,
-  RotateCcw,
   Loader2,
 } from 'lucide-react';
 import { useState } from 'react';
@@ -105,6 +102,30 @@ export function ProductInfo({
     }
   }
 
+  const shareData = {
+    title: product.title,
+    text: `Confira este produto: ${product.title}`,
+    url: typeof window !== 'undefined' ? window.location.href : '',
+  };
+
+  async function handleShare() {
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (error) {
+          console.error(error);
+          toast.error('Não foi possível compartilhar o produto.');
+        }
+      } else {
+        try {
+          await navigator.clipboard.writeText(shareData.url);
+          toast.success('Link do produto copiado para a área de transferência!');
+        } catch (error) {
+          toast.error('Não foi possível copiar o link. Tente manualmente.');
+        }
+      }
+  }
+
   return (
     <div className="space-y-6">
       {/* Cabeçalho do Produto */}
@@ -118,6 +139,7 @@ export function ProductInfo({
             variant="outline"
             size="icon"
             aria-label="Compartilhar produto"
+            onClick={handleShare}
           >
             <Share2 className="h-4 w-4" />
           </Button>
