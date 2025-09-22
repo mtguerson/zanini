@@ -24,8 +24,8 @@ export function SearchInput() {
             key={searchParams.get('q')}
             defaultValue={searchParams.get('q') || ''}
             id="search"
-            className="peer ps-9 w-64"
-            placeholder="Pesquisar..."
+            className="peer ps-9 w-80"
+            placeholder="O que você está buscando?"
             type="text"
             autoComplete="off"
             name="search"

@@ -87,6 +87,7 @@ export type ShopifyCollection = {
   handle: string;
   title: string;
   description: string;
+  image?: Image;
   seo: SEO;
   updatedAt: string;
 };
@@ -114,6 +115,15 @@ export type ShopifyProductsOperation = {
     query?: string;
     reverse?: boolean;
     sortKey?: string;
+  };
+};
+
+export type ShopifyCollectionOperation = {
+  data: {
+    collection: ShopifyCollection;
+  };
+  variables: {
+    handle: string;
   };
 };
 
