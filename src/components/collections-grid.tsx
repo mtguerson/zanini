@@ -32,7 +32,7 @@ export function CollectionsGrid({ collections }: CollectionsGridProps) {
           <div className="relative aspect-[2/3] w-full overflow-hidden">
             <Image 
               src={collection.image?.url || "/placeholder.svg"} 
-              alt={collection.title} 
+              alt={`Categoria ${collection.title}`} 
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 16vw"
