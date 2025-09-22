@@ -12,6 +12,7 @@ export const collectionFragment = /* GraphQL */ `
     seo {
       ...seo
     }
+    updatedAt
   }
   ${seoFragment}
   ${imageFragment}
