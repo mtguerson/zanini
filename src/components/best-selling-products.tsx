@@ -42,7 +42,7 @@ export async function BestSellingProducts() {
           {bestSellingProducts.map((product) => (
             <CarouselItem
               key={product.id}
-              className="md:basis-1/2 lg:basis-1/5 py-2"
+              className="md:basis-1/2 lg:basis-1/4 py-2"
             >
               <ProductCard product={product} key={product.id} />
             </CarouselItem>
@@ -52,10 +52,10 @@ export async function BestSellingProducts() {
         <CarouselNext className="cursor-pointer" />
       </Carousel>
 
-      <Button className="mt-6" size="lg" asChild>
+      <Button className="mt-6 group" size="lg" asChild>
         <Link href="/produtos">
           Ver todos os produtos
-          <ArrowRight />
+          <ArrowRight className="w-4 h-4 cursor-pointer group-hover:translate-x-1 transition-transform" />
         </Link>
       </Button>
     </div>
