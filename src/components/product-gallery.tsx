@@ -72,6 +72,7 @@ export function ProductGallery({
             quality={100}
             className="transition-transform duration-300 group-hover:scale-105"
             priority
+            title={currentImage.altText || title}
           />
 
           {hasMultipleImages && (
@@ -126,6 +127,7 @@ export function ProductGallery({
                 fill
                 sizes="64px"
                 className="object-cover"
+                title={image.altText || `${title} - Imagem ${index + 1}`}
               />
             </button>
           ))}

@@ -26,6 +26,7 @@ export function CollectionsGrid({ collections }: CollectionsGridProps) {
           key={collection.handle} 
           href={collection.path}
           className="group relative overflow-hidden rounded-2xl hover:scale-105 transition-transform duration-300"
+          title={`Ver coleção ${collection.title}`}
         >
           {/* Imagem da Collection */}
           <div className="relative aspect-[2/3] w-full overflow-hidden">
@@ -35,6 +36,7 @@ export function CollectionsGrid({ collections }: CollectionsGridProps) {
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 16vw"
+              title={collection.title}
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
           </div>

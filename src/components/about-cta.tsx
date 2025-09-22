@@ -43,7 +43,7 @@ export function AboutCTA() {
                       Descubra nossa seleção de produtos de qualidade,
                       cuidadosamente escolhidos para você.
                     </p>
-                    <Link href="/produtos">
+                    <Link href="/produtos" title="Ver produtos">
                       <Button size="lg" className="w-full group">
                         Ver Produtos
                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

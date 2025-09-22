@@ -28,7 +28,7 @@ export async function CollectionsSection() {
 
         {collections.length > 6 && (
           <div className="text-center mt-12">
-            <Link href="/categorias">
+            <Link href="/categorias" title="Ver todas as categorias">
               <Button size="lg" className="group">
                 Ver todas as categorias
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

@@ -40,6 +40,7 @@ export function CartItem({ item }: CartItemProps) {
           fill
           sizes="64px"
           className="object-cover"
+          title={item.featuredImage.altText || item.title}
         />
         {item.customImageUrl && (
           <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full overflow-hidden border-2 border-background shadow-sm">
@@ -49,6 +50,7 @@ export function CartItem({ item }: CartItemProps) {
               fill
               sizes="24px"
               className="object-cover"
+              title="Imagem personalizada"
             />
           </div>
         )}

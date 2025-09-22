@@ -82,7 +82,7 @@ export function Hero() {
             size="lg"
             className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
-            <Link href="/produtos">
+            <Link href="/produtos" title="Ver produtos">
               Ver Produtos
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
@@ -94,7 +94,7 @@ export function Hero() {
             size="lg"
             className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
           >
-            <Link href={'/sobre-nos'}>Sobre Nós</Link>
+            <Link href={'/sobre-nos'} title="Sobre nós">Sobre Nós</Link>
           </Button>
         </div>
 
