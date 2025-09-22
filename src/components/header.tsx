@@ -43,6 +43,7 @@ export function Header() {
           height={20}
           alt="Bandeira do Brasil"
           src={br}
+          title="Bandeira do Brasil"
         />
       </div>
 
@@ -50,7 +51,7 @@ export function Header() {
       <div className="py-4 px-4 md:px-24 sm:px-6 lg:px-36 w-full items-center justify-between flex border-b">
         {/* Logo e navegação */}
         <div className="flex gap-4 items-center">
-          <Link href="/">
+          <Link href="/" title="Ir para a página inicial">
             <h1 className="text-xl sm:text-2xl font-bold">Zanini</h1>
           </Link>
 
@@ -63,6 +64,7 @@ export function Header() {
                   ? 'text-primary font-semibold underline underline-offset-2'
                   : 'hover:underline transition-colors underline-offset-2'
               }
+              title="Ver produtos"
             >
               Produtos
             </Link>
@@ -73,6 +75,7 @@ export function Header() {
                   ? 'text-primary font-semibold underline underline-offset-2'
                   : 'hover:underline transition-colors underline-offset-2'
               }
+              title="Ver categorias"
             >
               Categorias
             </Link>
@@ -83,6 +86,7 @@ export function Header() {
                   ? 'text-primary font-semibold underline underline-offset-2'
                   : 'hover:underline transition-colors underline-offset-2'
               }
+              title="Sobre nós"
             >
               Sobre
             </Link>
@@ -153,6 +157,7 @@ export function Header() {
                         : 'hover:bg-gray-50 rounded-md px-2 -mx-2'
                     }`}
                     onClick={closeMenu}
+                    title="Ver produtos"
                   >
                     Produtos
                   </Link>
@@ -171,6 +176,7 @@ export function Header() {
                         : 'hover:bg-gray-50 rounded-md px-2 -mx-2'
                     }`}
                     onClick={closeMenu}
+                    title="Ver categorias"
                   >
                     Categorias
                   </Link>
@@ -189,6 +195,7 @@ export function Header() {
                         : 'hover:bg-gray-50 rounded-md px-2 -mx-2'
                     }`}
                     onClick={closeMenu}
+                    title="Sobre nós"
                   >
                     Sobre
                   </Link>

@@ -127,7 +127,7 @@ export function PromotionalShowcase() {
               {/* CTA */}
               <div className="pt-4 justify-center flex md:justify-start">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground p-6 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <Link href="/produtos">Explore Nossa Coleção</Link>
+                  <Link href="/produtos" title="Explore nossa coleção de produtos">Explore Nossa Coleção</Link>
                 </Button>
               </div>
             </div>
@@ -154,6 +154,7 @@ export function PromotionalShowcase() {
                       fill
                       className="object-cover transition-all duration-700"
                       priority
+                      title={currentItem.title}
                     />
                     {/* Overlay Gradiente */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
@@ -188,6 +189,7 @@ export function PromotionalShowcase() {
                     quality={100}
                     fill
                     className="transition-transform object-cover duration-300"
+                    title={item.title}
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>

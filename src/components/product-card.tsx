@@ -25,6 +25,7 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
               quality={100}
               sizes="128px"
               className="object-cover group-hover:scale-105 transition-transform duration-300"
+              title={product.featuredImage.altText || product.title}
             />
           </div>
 
@@ -61,7 +62,7 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
                 className="bg-primary hover:bg-primary/90"
                 disabled={!product.availableForSale}
               >
-                <Link href={`/produto/${product.handle}`}>
+                <Link href={`/produto/${product.handle}`} title={`Ver produto ${product.title}`}>
                   <ShoppingCart className="w-4 h-4 mr-2" />
                   {product.availableForSale ? 'Ver Produto' : 'Indisponível'}
                 </Link>
@@ -83,6 +84,7 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
           fill
           className="group-hover:scale-105 transition-transform duration-300"
           priority={false}
+          title={product.featuredImage.altText || product.title}
         />
 
         {/* Badge de Desconto */}
@@ -121,7 +123,7 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
           className="w-full bg-primary cursor-pointer hover:bg-primary/90 text-white font-medium py-2.5 rounded-lg transition-all duration-200 flex items-center justify-center gap-2"
           disabled={!product.availableForSale}
         >
-          <Link href={`/produto/${product.handle}`}>
+          <Link href={`/produto/${product.handle}`} title={`Comprar ${product.title}`}>
             <ShoppingCart className="w-4 h-4" />
             {product.availableForSale ? 'Comprar Agora' : 'Indisponível'}
           </Link>

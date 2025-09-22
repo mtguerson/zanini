@@ -14,9 +14,37 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Zanini - Comunicação Visual',
+  metadataBase: new URL('https://zaninidigital.com.br'),
+  title: 'Zanini Comunicação Visual – Impressão Digital, MDF e Acrílico',
   description:
-    'Como pioneira no ramo da Comunicação Visual, a Zanini tem se tornado referência no mercado de impressão digital',
+    'Especialistas em comunicação visual: impressão digital, letreiros, MDF e acrílico. Qualidade, prazos rápidos e atendimento completo para destacar sua marca.',
+  keywords: [
+    'Comunicação Visual',
+    'Impressão Digital',
+    'Adesivos',
+    'MDF',
+    'Acrílico',
+    'Letreiros',
+    'Enfeitados',
+  ],
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  authors: [{ name: 'Zanini Comunicação Visual', url: 'https://zaninidigital.com.br' }],
+  creator: 'Zanini Comunicação Visual',
+  publisher: 'Zanini Comunicação Visual',
 };
 
 export default function RootLayout({

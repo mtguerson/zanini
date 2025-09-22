@@ -19,8 +19,8 @@ const reviews: Review[] = [
     id: '1',
     name: 'Maria Silva',
     description:
-      'Produto incrível! A qualidade superou minhas expectativas. Recomendo muito!',
-    photo: 'https://avatar.vercel.sh/maria',
+      'Troféu em acrílico 3mm perfeito: corte a laser preciso, bordas polidas e personalização impecável. Valorizou nossa premiação.',
+    photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     rating: 5,
     productName: 'Troféu em Acrílico 3mm',
     productHandle: 'trofeu-em-acrilico-3mm',
@@ -29,8 +29,8 @@ const reviews: Review[] = [
     id: '2',
     name: 'João Santos',
     description:
-      'Excelente custo-benefício. Material de primeira qualidade e entrega rápida.',
-    photo: 'https://avatar.vercel.sh/joao',
+      'Comprei o Porta Retrato Mãe para presentear e ficou emocionante. Gravação nítida, ótimo acabamento e excelente estabilidade na mesa.',
+    photo: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     rating: 5,
     productName: 'Porta Retrato Mãe',
     productHandle: 'porta-retrato-mae',
@@ -39,18 +39,18 @@ const reviews: Review[] = [
     id: '3',
     name: 'Ana Costa',
     description:
-      'Adorei o produto! Chegou antes do prazo e exatamente como mostrado nas fotos.',
-    photo: 'https://avatar.vercel.sh/ana',
-    rating: 5,
-    productName: 'Enfeite em MDF',
+      'O Enfeite em MDF tem corte limpo e pintura uniforme. Deu um toque aconchegante à decoração e chegou muito bem embalado.',
+      photo: 'https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      rating: 5,
+      productName: 'Enfeite em MDF',
     productHandle: 'enfeite-em-mdf',
   },
   {
     id: '4',
     name: 'Pedro Oliveira',
     description:
-      'Qualidade excepcional! Já é a segunda vez que compro e sempre fico satisfeito.',
-    photo: 'https://avatar.vercel.sh/pedro',
+      'A imagem de Nossa Senhora Aparecida é linda, com detalhes delicados e acabamento brilhante. Presente perfeito para quem tem devoção.',
+    photo: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     rating: 5,
     productName: 'Nossa Senhora Aparecida',
     productHandle: 'nossa-senhora-aparecida',
@@ -59,9 +59,9 @@ const reviews: Review[] = [
     id: '5',
     name: 'Carla Ferreira',
     description:
-      'Produto maravilhoso! O tecido é muito confortável e o caimento perfeito.',
-    rating: 4,
-    photo: 'https://avatar.vercel.sh/carla',
+      'A Medalha São Bento é muito bem acabada, com gravações definidas e brilho elegante. Transmite proteção e veio com excelente qualidade.',
+    rating: 5,
+    photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     productName: 'Medalha São Bento',
     productHandle: 'medalha-sao-bento',
   },
@@ -69,8 +69,8 @@ const reviews: Review[] = [
     id: '6',
     name: 'Roberto Lima',
     description:
-      'Muito bom! Produto de qualidade e atendimento excelente. Voltarei a comprar.',
-    photo: 'https://avatar.vercel.sh/roberto',
+      'O Troféu Beach Tennis ficou incrível no campeonato: design moderno, personalização fiel e material resistente. Recomendo para eventos.',
+    photo: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=3023&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     rating: 5,
     productName: 'Troféu Beach Tennis',
     productHandle: 'trofeu-beach-tennis',
@@ -116,6 +116,7 @@ function ReviewCard({ review }: { review: Review }) {
             className="h-12 w-12 rounded-full object-cover"
             src={photo}
             alt={`Foto de ${name}`}
+            title={`Foto de ${name}`}
           />
         ) : (
           <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center">
@@ -148,7 +149,7 @@ function ReviewCard({ review }: { review: Review }) {
         </div>
 
         <Button asChild size="sm" variant="outline" className="shrink-0">
-          <Link href={`/produto/${productHandle}`}>Ver Produto</Link>
+          <Link href={`/produto/${productHandle}`} title={`Ver produto ${productName}`}>Ver Produto</Link>
         </Button>
       </div>
     </figure>

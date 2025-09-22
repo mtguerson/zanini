@@ -83,6 +83,7 @@ export async function Footer() {
                     >
                       <a
                         href="https://www.facebook.com/zaninicv"
+                        title="Siga-nos no Facebook"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -106,6 +107,7 @@ export async function Footer() {
                     >
                       <a
                         href="https://www.instagram.com/cvzanini/"
+                        title="Siga-nos no Instagram"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
