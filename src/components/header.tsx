@@ -9,6 +9,7 @@ import { ShoppingCart } from './shopping-cart';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
+import logo from '@/assets/logo.webp';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,7 +53,12 @@ export function Header() {
         {/* Logo e navegação */}
         <div className="flex gap-4 items-center">
           <Link href="/" title="Ir para a página inicial">
-            <h1 className="text-xl sm:text-2xl font-bold">Zanini</h1>
+            <Image
+              src={logo}
+              alt="Zanini Comunicação Visual"
+              width={100}
+              height={100}
+            />
           </Link>
 
           {/* Menu desktop */}
@@ -206,7 +212,7 @@ export function Header() {
         )}
       </AnimatePresence>
 
-      <div className='md:hidden flex w-full justify-center items-center mt-4'>
+      <div className="md:hidden flex w-full justify-center items-center mt-4">
         <Suspense>
           <SearchInput />
         </Suspense>
