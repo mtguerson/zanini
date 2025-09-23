@@ -20,14 +20,14 @@ export function CartItem({ item }: CartItemProps) {
   const totalPrice = itemPrice * item.quantity;
 
   function handleIncrease() {
-    increaseProductQuantity(item.id);
+    increaseProductQuantity(item.lineId);
   }
 
   function handleDecrease() {
     if (item.quantity <= 1) {
-      return removeProduct(item.id);
+      return removeProduct(item.lineId);
     }
-    return decreaseProductQuantity(item.id);
+    return decreaseProductQuantity(item.lineId);
   }
 
   return (
@@ -78,7 +78,7 @@ export function CartItem({ item }: CartItemProps) {
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => removeProduct(item.id)}
+            onClick={() => removeProduct(item.lineId)}
             className="h-6 w-6 text-muted-foreground hover:text-destructive flex-shrink-0"
             aria-label="Remover item"
           >
