@@ -6,6 +6,7 @@ import { CartProvider } from '@/contexts/cart';
 import { Toaster } from '@/components/ui/sonner';
 import { ReactQueryProvider } from '@/providers/react-query';
 import { Footer } from '@/components/footer';
+import Script from 'next/script';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -42,7 +43,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  authors: [{ name: 'Zanini Comunicação Visual', url: 'https://zaninidigital.com.br' }],
+  authors: [
+    { name: 'Zanini Comunicação Visual', url: 'https://zaninidigital.com.br' },
+  ],
   creator: 'Zanini Comunicação Visual',
   publisher: 'Zanini Comunicação Visual',
 };
@@ -54,7 +57,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <Script strategy="beforeInteractive">
+        {`<!-- Google Tag Manager -->`}
+        {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-WVNX9GSD');`}
+        {`<!-- End Google Tag Manager -->`}
+      </Script>
       <body className={`antialiased ${inter.className}`}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WVNX9GSD"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <ReactQueryProvider>
           <CartProvider>
             <Header />
