@@ -1,6 +1,11 @@
+import type { Metadata } from 'next';
 import { ProductCard } from '@/components/product-card';
 import { defaultSort, sorting } from '@/lib/constants';
 import { getCollectionProducts } from '@/lib/shopify';
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: true },
+};
 
 export default async function CategoryPage({
   params,
