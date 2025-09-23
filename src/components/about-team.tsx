@@ -1,6 +1,8 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Users, MessageCircle, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import Image from 'next/image';
+import team from '@/assets/team.webp';
 
 export function AboutTeam() {
   return (
@@ -86,11 +88,16 @@ export function AboutTeam() {
               <Card className="p-8">
                 <CardContent className="space-y-6">
                   <div className="text-center space-y-4">
-                    <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                      <Users className="w-10 h-10 text-primary" />
+                    <div className="flex items-center justify-center">
+                      <Image
+                        src={team}
+                        alt="Nosso Time"
+                        className="rounded-lg"
+                        width={400}
+                      />
                     </div>
                     <h4 className="text-xl font-bold text-foreground">
-                      Fundador & CEO
+                      Nosso Time
                     </h4>
                     <p className="text-muted-foreground">
                       "Acreditamos que cada cliente merece ser tratado com
