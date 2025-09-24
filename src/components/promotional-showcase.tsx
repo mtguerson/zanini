@@ -127,8 +127,13 @@ export function PromotionalShowcase() {
 
               {/* CTA */}
               <div className="pt-4 justify-center flex md:justify-start">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground p-6 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  <Link href="/produtos" title="Explore nossa coleção de produtos">Explore Nossa Coleção</Link>
+                <Button className="bg-primary hover:bg-primary/90 text-white p-6 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <Link
+                    href="/produtos"
+                    title="Explore nossa coleção de produtos"
+                  >
+                    Explore Nossa Coleção
+                  </Link>
                 </Button>
               </div>
             </div>

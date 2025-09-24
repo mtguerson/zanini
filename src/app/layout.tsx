@@ -7,6 +7,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { ReactQueryProvider } from '@/providers/react-query';
 import { Footer } from '@/components/footer';
 import Script from 'next/script';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -81,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         {/* Google Tag Manager */}
         <Script id="gtm" strategy="afterInteractive">
@@ -104,13 +105,15 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        <ReactQueryProvider>
-          <CartProvider>
-            <Header />
-            {children}
-            <Footer />
-          </CartProvider>
-        </ReactQueryProvider>
+        <ThemeProvider defaultTheme="system">
+          <ReactQueryProvider>
+            <CartProvider>
+              <Header />
+              {children}
+              <Footer />
+            </CartProvider>
+          </ReactQueryProvider>
+        </ThemeProvider>
         <Toaster richColors />
       </body>
     </html>

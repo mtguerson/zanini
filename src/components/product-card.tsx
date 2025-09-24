@@ -14,9 +14,9 @@ interface ProductCardProps {
 export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
   if (viewMode === 'list') {
     return (
-      <div className="group relative w-full bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
+      <div className="group relative w-full rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border">
         <div className="flex gap-4 p-4">
-          <div className="relative w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg bg-gray-50">
+          <div className="relative w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg">
             <Image
               src={product.featuredImage.url}
               alt={product.featuredImage.altText || product.title}
@@ -30,7 +30,7 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
 
           <div className="flex-1 flex flex-col justify-between">
             <div>
-              <h3 className="font-semibold text-gray-900 text-lg leading-tight mb-2 group-hover:text-primary transition-colors">
+              <h3 className="font-semibold text-foreground text-lg leading-tight mb-2 group-hover:text-primary transition-colors">
                 <div className="gap-2 flex">
                   {product.title}
                   <Badge variant="outline">
@@ -47,6 +47,9 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="text-xl font-bold text-primary">
+                  <span className="text-muted-foreground text-sm">
+                    A partir de
+                  </span>{' '}
                   {formatPrice(product.priceRange.maxVariantPrice.amount)}
                 </span>
                 <Badge className="bg-primary text-white font-semibold text-xs">
@@ -76,12 +79,12 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
   }
 
   return (
-    <div className="group relative w-full max-w-lg bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
+    <div className="group relative w-full max-w-lg bg-background rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border">
       <Link
         href={`/produto/${product.handle}`}
         title={`Ver produto ${product.title}`}
       >
-        <div className="relative aspect-square overflow-hidden bg-gray-50">
+        <div className="relative aspect-square overflow-hidden">
           <Image
             src={product.featuredImage.url}
             alt={product.featuredImage.altText || product.title}
@@ -100,7 +103,7 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
 
         <div className="p-4 space-y-3">
           <div className="justify-between flex items-start">
-            <h3 className="font-semibold text-gray-900 text-sm leading-tight line-clamp-2 min-h-[2.5rem] group-hover:text-primary transition-colors">
+            <h3 className="font-semibold text-foreground text-sm leading-tight line-clamp-2 min-h-[2.5rem] group-hover:text-primary transition-colors">
               {product.title}
             </h3>
 
@@ -111,7 +114,7 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
           </div>
 
           <div className="flex items-center gap-2">
-            <p className="text-sm text-muted-foreground">a partir de</p>
+            <p className="text-sm text-muted-foreground">A partir de</p>
             <span className="text-lg font-bold text-primary">
               {formatPrice(product.priceRange.minVariantPrice.amount)}
             </span>

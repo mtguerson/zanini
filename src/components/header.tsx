@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import logo from '@/assets/logo.webp';
+import { ThemeSwitcher } from './theme-switcher';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +35,7 @@ export function Header() {
     <header className="relative">
       {/* Banner superior */}
       <div className="bg-primary text-center flex justify-center items-center w-full">
-        <span className="text-primary-foreground p-2 text-sm">
+        <span className="text-white p-2 text-sm">
           Bem-vindo à{' '}
           <span className="font-bold">Zanini Comunicação Visual</span>!
         </span>
@@ -102,6 +103,7 @@ export function Header() {
         {/* Ações do lado direito */}
         <div className="flex gap-2 sm:gap-4 items-center">
           {/* Search Input - oculto em mobile muito pequeno */}
+          <ThemeSwitcher />
           <div className="hidden sm:block">
             <Suspense>
               <SearchInput />
