@@ -1,65 +1,39 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import {
-  Award,
-  Users,
-  Leaf,
-  Clock,
-  Shield,
-  Heart,
-  Zap,
-  Target,
-} from 'lucide-react';
+import { Award, Users, Clock, Shield, Zap } from 'lucide-react';
 
 export function AboutValues() {
   const values = [
     {
+      icon: Zap,
+      title: 'Criatividade',
+      description: 'Buscar constantemente inovação em cada projeto.',
+    },
+    {
       icon: Award,
-      title: 'Qualidade Superior',
+      title: 'Qualidade',
       description:
-        'Selecionamos apenas os melhores produtos, testados e aprovados por nossa equipe.',
-    },
-    {
-      icon: Users,
-      title: 'Atendimento Personalizado',
-      description:
-        'Cada cliente é único. Oferecemos suporte dedicado e soluções sob medida.',
-    },
-    {
-      icon: Leaf,
-      title: 'Sustentabilidade',
-      description:
-        'Comprometidos com práticas sustentáveis e produtos eco-friendly.',
+        'Entregar produtos e serviços com excelência em todos os detalhes.',
     },
     {
       icon: Clock,
-      title: 'Agilidade',
-      description:
-        'Processamento rápido e entrega eficiente para sua comodidade.',
+      title: 'Comprometimento',
+      description: 'Honrar prazos e expectativas dos clientes.',
     },
     {
       icon: Shield,
-      title: 'Garantia Total',
-      description:
-        'Produtos com garantia estendida e política de devolução facilitada.',
+      title: 'Ética e Transparência',
+      description: 'Relações baseadas em respeito, clareza e honestidade.',
     },
     {
-      icon: Heart,
-      title: 'Transparência',
-      description:
-        'Comunicação clara, preços justos e processos transparentes.',
+      icon: Users,
+      title: 'Valorização do Cliente',
+      description: 'Entender e atender as necessidades de forma personalizada.',
     },
     {
-      icon: Zap,
-      title: 'Inovação',
-      description:
-        'Sempre buscando novas tecnologias e melhorias para nossos clientes.',
-    },
-    {
-      icon: Target,
-      title: 'Foco no Cliente',
-      description:
-        'Cada decisão é tomada pensando no melhor para nossos clientes.',
+      icon: Users,
+      title: 'Trabalho em Equipe',
+      description: 'Incentivar a colaboração e o crescimento coletivo.',
     },
   ];
 
@@ -80,7 +54,7 @@ export function AboutValues() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((value, index) => (
               <Card
                 key={index}
@@ -107,9 +81,9 @@ export function AboutValues() {
                 Nossa Promessa
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                "Cada produto que vendemos, cada atendimento que realizamos e
-                cada decisão que tomamos é guiada por esses valores. Eles não
-                são apenas palavras em uma página - são a essência da Zanini."
+                "Cada projeto e cada atendimento são guiados por esses valores.
+                Eles representam quem somos na{' '}
+                <span className="text-primary font-bold">ZANINI</span>."
               </p>
             </div>
           </div>
