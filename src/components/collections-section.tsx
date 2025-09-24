@@ -56,7 +56,7 @@ export async function CollectionsSection() {
         <CarouselNext className="cursor-pointer" />
       </Carousel>
 
-      <Button className="mt-6 group" size="lg" asChild>
+      <Button className="mt-6 group text-white" size="lg" asChild>
         <Link href="/produtos" title="Ver todos os produtos">
           Ver todos os produtos
           <ArrowRight className="w-4 h-4 cursor-pointer group-hover:translate-x-1 transition-transform" />

@@ -44,7 +44,7 @@ export function AboutCTA() {
                       cuidadosamente escolhidos para você.
                     </p>
                     <Link href="/produtos" title="Ver produtos">
-                      <Button size="lg" className="w-full group">
+                      <Button size="lg" className="w-full group text-white">
                         Ver Produtos
                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                       </Button>

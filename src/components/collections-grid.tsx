@@ -20,7 +20,7 @@ export function CollectionsGrid({ collections }: CollectionsGridProps) {
   }
 
   return (
-    <div className="group relative w-full max-w-lg bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
+    <div className="group relative w-full max-w-lg rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border">
       {collections.map((collection) => (
         <Link
           key={collection.handle}

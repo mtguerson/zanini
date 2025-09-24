@@ -80,7 +80,7 @@ export function Hero() {
           <Button
             asChild
             size="lg"
-            className="group bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            className="group bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
             <Link href="/produtos" title="Ver produtos">
               Ver Produtos
@@ -94,7 +94,9 @@ export function Hero() {
             size="lg"
             className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
           >
-            <Link href={'/sobre-nos'} title="Sobre nós">Sobre Nós</Link>
+            <Link href={'/sobre-nos'} title="Sobre nós">
+              Sobre Nós
+            </Link>
           </Button>
         </div>
 
