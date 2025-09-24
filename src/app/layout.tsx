@@ -28,6 +28,31 @@ export const metadata: Metadata = {
     'Letreiros',
     'Enfeitados',
   ],
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'Zanini Comunicação Visual',
+    title: 'Zanini Comunicação Visual – Impressão Digital, MDF e Acrílico',
+    description:
+      'Especialistas em comunicação visual: impressão digital, letreiros, MDF e acrílico. Qualidade, prazos rápidos e atendimento completo para destacar sua marca.',
+    images: [
+      {
+        url: '/og-image.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Zanini Comunicação Visual',
+      },
+    ],
+    locale: 'pt_BR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zanini Comunicação Visual – Impressão Digital, MDF e Acrílico',
+    description:
+      'Especialistas em comunicação visual: impressão digital, letreiros, MDF e acrílico. Qualidade, prazos rápidos e atendimento completo para destacar sua marca.',
+    images: ['/og-image.jpeg'],
+    creator: '@zaninidigital',
+  },
   alternates: {
     canonical: '/',
   },
