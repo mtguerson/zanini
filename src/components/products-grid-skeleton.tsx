@@ -18,7 +18,7 @@ export function ProductsGridSkeleton() {
         {Array.from({ length: 9 }).map((_, index) => (
           <div
             key={index}
-            className="group relative w-full max-w-lg bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
+            className="group relative w-full max-w-lg rounded-xl shadow-sm border overflow-hidden"
           >
             {/* Imagem Skeleton */}
             <div className="relative aspect-square overflow-hidden bg-muted animate-pulse">
@@ -49,4 +49,3 @@ export function ProductsGridSkeleton() {
     </div>
   );
 }
-
