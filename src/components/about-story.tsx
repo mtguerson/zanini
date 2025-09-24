@@ -12,10 +12,13 @@ export function AboutStory() {
               Nossa História
             </Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-              Como tudo começou
+              Quase 40 anos de comunicação visual
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              A Zanini nasceu de um sonho e de uma necessidade real do mercado
+              Estamos no ramo de comunicação visual há quase 40 anos, sempre com
+              a qualidade acima de tudo. Investimos na loja online para ampliar
+              nosso alcance e atender com agilidade quem precisa em qualquer
+              lugar do Brasil.
             </p>
           </div>
 
@@ -26,12 +29,13 @@ export function AboutStory() {
                   <Lightbulb className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground">
-                  A Ideia
+                  Origem
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Em 2020, identificamos uma lacuna no mercado: a falta de
-                  produtos de qualidade com preços justos e atendimento
-                  personalizado. Decidimos criar algo diferente.
+                  A família Zanini chegou a Chapadão do Sul - MS em 1986 e
+                  começou com pequenas pinturas em paredes, faixas e banners em
+                  tecido. Evoluímos para um parque produtivo com impressão
+                  digital, corte a laser e recorte eletrônico.
                 </p>
               </CardContent>
             </Card>
@@ -45,9 +49,10 @@ export function AboutStory() {
                   O Problema
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Muitas pessoas procuravam produtos confiáveis, mas encontravam
-                  apenas opções caras ou de qualidade duvidosa. Queríamos mudar
-                  isso.
+                  Muitas pessoas precisam de materiais que nem sempre estão
+                  disponíveis em suas cidades. Com a loja online, oferecemos
+                  acesso rápido, com qualidade e personalização, a quem está em
+                  qualquer região.
                 </p>
               </CardContent>
             </Card>
@@ -58,12 +63,12 @@ export function AboutStory() {
                   <TrendingUp className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground">
-                  A Evolução
+                  Evolução
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Hoje, somos uma marca consolidada, mas mantemos o mesmo
-                  espírito inicial: colocar o cliente no centro de tudo que
-                  fazemos.
+                  Crescemos com o tempo, aperfeiçoando processos, tecnologias e
+                  atendimento. Mantemos o compromisso com a excelência e com a
+                  identidade visual de cada cliente.
                 </p>
               </CardContent>
             </Card>
@@ -75,9 +80,10 @@ export function AboutStory() {
                 Nossa Missão
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                "Oferecer produtos de qualidade excepcional, com preços justos e
-                atendimento humanizado, criando uma experiência de compra única
-                que gera confiança e satisfação em cada cliente."
+                "Oferecer soluções criativas e personalizadas em comunicação
+                visual que fortaleçam a identidade das marcas, transmitam
+                mensagens de forma clara e impactante e contribuam para o
+                sucesso dos nossos clientes."
               </p>
             </div>
           </div>

@@ -14,7 +14,8 @@ export function AboutTeam() {
               Nossa Equipe
             </Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-              Conheça quem está por trás da Zanini
+              Conheça quem está por trás da{' '}
+              <span className="text-primary font-bold">ZANINI</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Somos uma equipe apaixonada e dedicada, trabalhando todos os dias

@@ -11,15 +11,17 @@ export function AboutHero() {
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-4">
               <Badge variant="outline" className="text-sm font-medium">
-                Desde 2020
+                Desde 1986
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
-                Sobre a <span className="text-primary">Zanini</span>
+                Sobre a <span className="text-primary">ZANINI</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                Somos uma marca dedicada a oferecer produtos de qualidade
-                excepcional, com foco na satisfação do cliente e na inovação
-                constante.
+                A família Zanini chegou a Chapadão do Sul - MS em 1986,
+                iniciando com pequenas pinturas em paredes, faixas e banners em
+                tecido. Hoje, contamos com impressão digital, corte e gravação a
+                laser e recorte eletrônico para entregar soluções completas em
+                comunicação visual.
               </p>
             </div>
 
