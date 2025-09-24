@@ -16,7 +16,6 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
     return (
       <div className="group relative w-full bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
         <div className="flex gap-4 p-4">
-          {/* Imagem */}
           <div className="relative w-32 h-32 flex-shrink-0 overflow-hidden rounded-lg bg-gray-50">
             <Image
               src={product.featuredImage.url}
@@ -29,7 +28,6 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
             />
           </div>
 
-          {/* Conteúdo */}
           <div className="flex-1 flex flex-col justify-between">
             <div>
               <h3 className="font-semibold text-gray-900 text-lg leading-tight mb-2 group-hover:text-primary transition-colors">
@@ -62,7 +60,10 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
                 className="bg-primary hover:bg-primary/90"
                 disabled={!product.availableForSale}
               >
-                <Link href={`/produto/${product.handle}`} title={`Ver produto ${product.title}`}>
+                <Link
+                  href={`/produto/${product.handle}`}
+                  title={`Ver produto ${product.title}`}
+                >
                   <ShoppingCart className="w-4 h-4 mr-2" />
                   {product.availableForSale ? 'Ver Produto' : 'Indisponível'}
                 </Link>
@@ -76,59 +77,55 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
 
   return (
     <div className="group relative w-full max-w-lg bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
-      {/* Container da Imagem com Badge */}
-      <div className="relative aspect-square overflow-hidden bg-gray-50">
-        <Image
-          src={product.featuredImage.url}
-          alt={product.featuredImage.altText || product.title}
-          fill
-          className="group-hover:scale-105 transition-transform duration-300"
-          priority={false}
-          title={product.featuredImage.altText || product.title}
-        />
+      <Link
+        href={`/produto/${product.handle}`}
+        title={`Ver produto ${product.title}`}
+      >
+        <div className="relative aspect-square overflow-hidden bg-gray-50">
+          <Image
+            src={product.featuredImage.url}
+            alt={product.featuredImage.altText || product.title}
+            fill
+            className="group-hover:scale-105 transition-transform duration-300"
+            priority={false}
+            title={product.featuredImage.altText || product.title}
+          />
 
-        {/* Badge de Desconto */}
-        <div className="absolute top-2 right-2 z-10">
-          <Badge className="bg-primary text-white font-semibold p-1 text-xs shadow-md">
-            15% OFF
-          </Badge>
-        </div>
-      </div>
-
-      {/* Conteúdo do Card */}
-      <div className="p-4 space-y-3">
-        {/* Título do Produto */}
-        <div className="justify-between flex items-start">
-          <h3 className="font-semibold text-gray-900 text-sm leading-tight line-clamp-2 min-h-[2.5rem] group-hover:text-primary transition-colors">
-            {product.title}
-          </h3>
-
-          <Badge variant="outline">
-            <Star className="text-amber-500" fill="#e89d09" />
-            4.9
-          </Badge>
+          <div className="absolute top-2 right-2 z-10">
+            <Badge className="bg-primary text-white font-semibold p-1 text-xs shadow-md">
+              15% OFF
+            </Badge>
+          </div>
         </div>
 
-        {/* Preço */}
-        <div className="flex items-center gap-2">
-          <p className="text-sm text-muted-foreground">a partir de</p>
-          <span className="text-lg font-bold text-primary">
-            {formatPrice(product.priceRange.minVariantPrice.amount)}
-          </span>
-        </div>
+        <div className="p-4 space-y-3">
+          <div className="justify-between flex items-start">
+            <h3 className="font-semibold text-gray-900 text-sm leading-tight line-clamp-2 min-h-[2.5rem] group-hover:text-primary transition-colors">
+              {product.title}
+            </h3>
 
-        {/* Botão Comprar Agora */}
-        <Button
-          asChild
-          className="w-full bg-primary cursor-pointer hover:bg-primary/90 text-white font-medium py-2.5 rounded-lg transition-all duration-200 flex items-center justify-center gap-2"
-          disabled={!product.availableForSale}
-        >
-          <Link href={`/produto/${product.handle}`} title={`Comprar ${product.title}`}>
+            <Badge variant="outline">
+              <Star className="text-amber-500" fill="#e89d09" />
+              4.9
+            </Badge>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <p className="text-sm text-muted-foreground">a partir de</p>
+            <span className="text-lg font-bold text-primary">
+              {formatPrice(product.priceRange.minVariantPrice.amount)}
+            </span>
+          </div>
+
+          <Button
+            className="w-full bg-primary cursor-pointer hover:bg-primary/90 text-white font-medium py-2.5 rounded-lg transition-all duration-200 flex items-center justify-center gap-2"
+            disabled={!product.availableForSale}
+          >
             <ShoppingCart className="w-4 h-4" />
             {product.availableForSale ? 'Comprar Agora' : 'Indisponível'}
-          </Link>
-        </Button>
-      </div>
+          </Button>
+        </div>
+      </Link>
     </div>
   );
 }
