@@ -111,32 +111,6 @@ export function ProductsFilters({
         )}
       </div>
 
-      {/* Busca */}
-      <div className="space-y-3">
-        <div className="flex items-center gap-2">
-          <Search className="w-4 h-4 text-primary" />
-          <Label className="text-sm font-medium">Buscar Produtos</Label>
-        </div>
-        <div className="flex gap-2">
-          <Input
-            type="text"
-            placeholder="Digite o nome do produto..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-            className="flex-1"
-          />
-          <Button size="sm" onClick={handleSearch}>
-            <Search className="w-4 h-4" />
-          </Button>
-        </div>
-        {currentFilters.query && (
-          <Badge variant="secondary" className="text-xs">
-            Buscando por: "{currentFilters.query}"
-          </Badge>
-        )}
-      </div>
-
       {/* Filtro de Preço */}
       <div className="space-y-3">
         <div className="flex items-center gap-2">
@@ -265,4 +239,3 @@ export function ProductsFilters({
     </div>
   );
 }
-

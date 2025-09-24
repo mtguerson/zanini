@@ -20,19 +20,19 @@ export function CollectionsGrid({ collections }: CollectionsGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 px-6 md:px-12 lg:grid-cols-3 gap-4">
+    <div className="group relative w-full max-w-lg bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
       {collections.map((collection) => (
         <Link
-          key={collection.handle} 
+          key={collection.handle}
           href={collection.path}
           className="group relative overflow-hidden rounded-2xl hover:scale-105 transition-transform duration-300"
           title={`Ver coleção ${collection.title}`}
         >
           {/* Imagem da Collection */}
           <div className="relative aspect-[2/3] w-full overflow-hidden">
-            <Image 
-              src={collection.image?.url || "/placeholder.svg"} 
-              alt={`Categoria ${collection.title}`} 
+            <Image
+              src={collection.image?.url || '/placeholder.svg'}
+              alt={`Categoria ${collection.title}`}
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 16vw"
@@ -40,7 +40,7 @@ export function CollectionsGrid({ collections }: CollectionsGridProps) {
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
           </div>
-          
+
           {/* Botão/Label com o nome */}
           <div className="absolute bottom-0 left-0 right-0 p-4">
             <div className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-center py-3 px-4 rounded-xl transition-colors duration-200 shadow-lg">
