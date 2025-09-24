@@ -91,7 +91,7 @@ export function ShoppingCart() {
             ) : (
               <div className="space-y-4">
                 {products.map((item) => (
-                  <CartItem key={item.id} item={item} />
+                  <CartItem key={item.lineId} item={item} />
                 ))}
               </div>
             )}

@@ -6,6 +6,7 @@ import { createContext, ReactNode, useState, useEffect } from 'react';
 export interface CartProduct extends Product {
   quantity: number;
   customImageUrl?: string;
+  lineId: string;
 }
 
 interface ICartContext {
@@ -14,10 +15,10 @@ interface ICartContext {
   total: number;
   totalPrice: number;
   toggleCart: () => void;
-  addProduct: (product: CartProduct) => void;
-  decreaseProductQuantity: (productId: string) => void;
-  increaseProductQuantity: (productId: string) => void;
-  removeProduct: (productId: string) => void;
+  addProduct: (product: Omit<CartProduct, 'lineId'>) => void;
+  decreaseProductQuantity: (lineId: string) => void;
+  increaseProductQuantity: (lineId: string) => void;
+  removeProduct: (lineId: string) => void;
   clearCart: () => void;
 }
 
@@ -65,7 +66,15 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const storedProducts = getStoredCart();
-    setProducts(storedProducts);
+    // Migração: garantir lineId para itens existentes
+    const migrated = storedProducts.map((p: any) => {
+      const computedLineId = `${p.id}:${p.customImageUrl ?? ''}`;
+      return {
+        ...p,
+        lineId: p.lineId ?? computedLineId,
+      } as CartProduct;
+    });
+    setProducts(migrated);
     setIsLoaded(true);
   }, []);
 
@@ -93,18 +102,27 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setProducts([]);
   };
 
-  const addProduct = (product: CartProduct) => {
+  const addProduct = (product: Omit<CartProduct, 'lineId'>) => {
+    // lineId único por variante + customização (url)
+    const computedLineId = `${product.id}:${product.customImageUrl ?? ''}`;
+
     const productIsAlreadyInTheCart = products.some(
-      (prevProduct) => prevProduct.id === product.id
+      (prevProduct) => prevProduct.lineId === computedLineId
     );
 
     if (!productIsAlreadyInTheCart) {
-      return setProducts((prev) => [...prev, product]);
+      return setProducts((prev) => [
+        ...prev,
+        {
+          ...product,
+          lineId: computedLineId,
+        },
+      ]);
     }
 
     setProducts((prevProducts) => {
       return prevProducts.map((prevProduct) => {
-        if (prevProduct.id === product.id) {
+        if (prevProduct.lineId === computedLineId) {
           return {
             ...prevProduct,
             quantity: prevProduct.quantity + product.quantity,
@@ -115,10 +133,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  const decreaseProductQuantity = (productId: string) => {
+  const decreaseProductQuantity = (lineId: string) => {
     setProducts((prevProducts) => {
       return prevProducts.map((prevProduct) => {
-        if (prevProduct.id !== productId) {
+        if (prevProduct.lineId !== lineId) {
           return prevProduct;
         }
         if (prevProduct.quantity === 1) {
@@ -132,10 +150,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  const increaseProductQuantity = (productId: string) => {
+  const increaseProductQuantity = (lineId: string) => {
     setProducts((prevProducts) => {
       return prevProducts.map((prevProduct) => {
-        if (prevProduct.id !== productId) {
+        if (prevProduct.lineId !== lineId) {
           return prevProduct;
         }
         return {
@@ -146,9 +164,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  const removeProduct = (productId: string) => {
+  const removeProduct = (lineId: string) => {
     setProducts((prevProducts) => {
-      return prevProducts.filter((prevProduct) => prevProduct.id !== productId);
+      return prevProducts.filter((prevProduct) => prevProduct.lineId !== lineId);
     });
   };
 
