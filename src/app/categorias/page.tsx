@@ -1,13 +1,6 @@
 import { getCollections } from '@/lib/shopify';
 import { CollectionsGrid } from '@/components/collections-grid';
 import { Metadata } from 'next';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
 
 export const metadata: Metadata = {
   title: 'Categorias | Zanini',
