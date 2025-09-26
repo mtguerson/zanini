@@ -1,47 +1,38 @@
 import * as React from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { Facebook, Instagram, Send } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from './ui/navigation-menu';
+import Image from 'next/image';
+import logo from '@/assets/logo.webp';
+import Link from 'next/link';
 
 export async function Footer() {
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
       <div className="container mx-auto px-6 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">
-              Fique por dentro das novidades
-            </h2>
-            <p className="mb-6 text-muted-foreground">
-              Receba as últimas notícias e promoções diretamente no seu e-mail.
-            </p>
-            <form className="relative">
-              <Input
-                type="email"
-                placeholder="Digite seu e-mail"
-                className="backdrop-blur-sm rounded-full"
+          <div className="relative flex justify-center items-center">
+            <Link href="/" title="Ir para a página inicial">
+              <Image
+                src={logo}
+                quality={100}
+                alt="Zanini Comunicação Visual"
+                title="Zanini Comunicação Visual"
+                width={200}
+                height={200}
               />
-              <Button
-                type="submit"
-                size="icon"
-                className="absolute right-1 top-0.5 h-8 w-8 rounded-full bg-primary text-white transition-transform hover:scale-105"
-              >
-                <Send className="h-4 w-4" />
-                <span className="sr-only">Inscreva-se</span>
-              </Button>
-            </form>
+            </Link>
             <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
           </div>
           <div>
