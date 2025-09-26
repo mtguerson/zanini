@@ -92,7 +92,7 @@ export function Hero() {
             asChild
             variant="outline"
             size="lg"
-            className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+            className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
           >
             <Link href={'/sobre-nos'} title="Sobre nós">
               Sobre Nós
@@ -113,7 +113,7 @@ export function Hero() {
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300 mx-auto">
-                <feature.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors duration-300 flex-shrink-0" />
+                <feature.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors duration-300 flex-shrink-0" />
               </div>
 
               <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">

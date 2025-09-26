@@ -4,11 +4,7 @@ import { Product, ProductVariant } from '@/lib/shopify/types';
 import { formatPrice } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import {
-  ShoppingCart,
-  Share2,
-  Loader2,
-} from 'lucide-react';
+import { ShoppingCart, Share2, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useCart } from '@/hooks/use-cart';
 import { ProductVariantSelector } from './product-variant-selector';
@@ -109,21 +105,21 @@ export function ProductInfo({
   };
 
   async function handleShare() {
-      if (navigator.share) {
-        try {
-          await navigator.share(shareData);
-        } catch (error) {
-          console.error(error);
-          toast.error('Não foi possível compartilhar o produto.');
-        }
-      } else {
-        try {
-          await navigator.clipboard.writeText(shareData.url);
-          toast.success('Link do produto copiado para a área de transferência!');
-        } catch (error) {
-          toast.error('Não foi possível copiar o link. Tente manualmente.');
-        }
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (error) {
+        console.error(error);
+        toast.error('Não foi possível compartilhar o produto.');
       }
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        toast.success('Link do produto copiado para a área de transferência!');
+      } catch (error) {
+        toast.error('Não foi possível copiar o link. Tente manualmente.');
+      }
+    }
   }
 
   return (
@@ -159,7 +155,7 @@ export function ProductInfo({
             </Badge>
           )}
           {savings > 0 && (
-            <Badge className="bg-primary text-primary-foreground text-xs font-medium">
+            <Badge className="bg-primary text-white text-xs font-medium">
               15% OFF
             </Badge>
           )}

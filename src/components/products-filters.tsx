@@ -91,13 +91,9 @@ export function ProductsFilters({
     currentFilters.maxPrice;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Cabeçalho dos Filtros */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Filter className="w-5 h-5 text-primary" />
-          <h2 className="text-lg font-semibold text-foreground">Filtros</h2>
-        </div>
         {hasActiveFilters && (
           <Button
             variant="ghost"
@@ -172,7 +168,7 @@ export function ProductsFilters({
                 onClick={() => handleCategoryFilter(category)}
                 className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
                   currentFilters.category === category
-                    ? 'bg-primary text-primary-foreground'
+                    ? 'bg-primary text-white'
                     : 'hover:bg-muted text-muted-foreground hover:text-foreground'
                 }`}
               >
@@ -187,28 +183,6 @@ export function ProductsFilters({
           </div>
         </div>
       )}
-
-      {/* Filtro de Disponibilidade */}
-      <div className="space-y-3">
-        <div className="flex items-center gap-2">
-          <Package className="w-4 h-4 text-primary" />
-          <Label className="text-sm font-medium">Disponibilidade</Label>
-        </div>
-        <div className="space-y-2">
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-muted-foreground">Em estoque</span>
-            <Badge variant="outline" className="text-xs">
-              {products.filter((p) => p.availableForSale).length}
-            </Badge>
-          </div>
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-muted-foreground">Esgotado</span>
-            <Badge variant="outline" className="text-xs">
-              {products.filter((p) => !p.availableForSale).length}
-            </Badge>
-          </div>
-        </div>
-      </div>
 
       {/* Resumo dos Filtros Ativos */}
       {hasActiveFilters && (
