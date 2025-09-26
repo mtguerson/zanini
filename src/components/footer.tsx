@@ -36,7 +36,7 @@ export async function Footer() {
               <Button
                 type="submit"
                 size="icon"
-                className="absolute right-1 top-0.5 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
+                className="absolute right-1 top-0.5 h-8 w-8 rounded-full bg-primary text-white transition-transform hover:scale-105"
               >
                 <Send className="h-4 w-4" />
                 <span className="sr-only">Inscreva-se</span>
