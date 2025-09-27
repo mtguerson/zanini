@@ -1,235 +1,234 @@
-# 🎨 Zanini Comunicação Visual
+# 🎨 Zanini Visual Communication
 
-> E-commerce moderno para comunicação visual, impressão digital, MDF e acrílico
+> Modern e-commerce for visual communication, digital printing, MDF and acrylic
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.4.7-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![Shopify](https://img.shields.io/badge/Shopify-API-7AB55C?style=flat-square&logo=shopify)](https://shopify.dev/)
 
-## 📋 Sobre o Projeto
+## 📋 About the Project
 
-A **Zanini Comunicação Visual** é uma plataforma de e-commerce moderna desenvolvida para oferecer soluções em comunicação visual, incluindo impressão digital, letreiros, MDF, acrílico e outros produtos personalizados. O projeto combina design moderno, performance otimizada e experiência de usuário excepcional.
+**Zanini Visual Communication** is a modern e-commerce platform developed to offer visual communication solutions, including digital printing, signs, MDF, acrylic and other personalized products. The project combines modern design, optimized performance and exceptional user experience.
 
-### 🎯 Principais Funcionalidades
+### 🎯 Main Features
 
-- **🛍️ E-commerce Completo**: Catálogo de produtos com carrinho de compras
-- **🎨 Design Personalizado**: Upload de imagens para personalização
-- **📱 Responsivo**: Interface otimizada para todos os dispositivos
-- **🌙 Modo Escuro**: Suporte completo a temas claro/escuro
-- **⚡ Performance**: Otimizado com Next.js 15 e Turbopack
-- **🔍 SEO Otimizado**: Meta tags, sitemap e estrutura semântica
-- **📊 Analytics**: Integração com Google Tag Manager
-- **🛒 Shopify Integration**: Integração completa com Shopify Storefront API
+- **🛍️ Complete E-commerce**: Product catalog with shopping cart
+- **🎨 Custom Design**: Image upload for personalization
+- **📱 Responsive**: Interface optimized for all devices
+- **🌙 Dark Mode**: Full support for light/dark themes
+- **⚡ Performance**: Optimized with Next.js 15 and Turbopack
+- **🔍 SEO Optimized**: Meta tags, sitemap and semantic structure
+- **📊 Analytics**: Google Tag Manager integration
+- **🛒 Shopify Integration**: Complete integration with Shopify Storefront API
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Technologies Used
 
 ### Frontend
 
-- **Next.js 15.4.7** - Framework React com App Router
-- **React 19.1.0** - Biblioteca de interface
-- **TypeScript 5.0** - Tipagem estática
-- **Tailwind CSS 4.0** - Framework CSS utilitário
-- **Radix UI** - Componentes acessíveis
-- **Lucide React** - Ícones modernos
-- **Motion** - Animações fluidas
-- **Embla Carousel** - Carrosséis responsivos
+- **Next.js 15.4.7** - React framework with App Router
+- **React 19.1.0** - Interface library
+- **TypeScript 5.0** - Static typing
+- **Tailwind CSS 4.0** - Utility CSS framework
+- **Radix UI** - Accessible components
+- **Lucide React** - Modern icons
+- **Motion** - Fluid animations
+- **Embla Carousel** - Responsive carousels
 
-### Backend & Integrações
+### Backend & Integrations
 
 - **Shopify Storefront API** - E-commerce backend
-- **Cloudflare R2** - Armazenamento de arquivos
-- **TanStack Query** - Gerenciamento de estado servidor
-- **Zod** - Validação de schemas
+- **Cloudflare R2** - File storage
+- **TanStack Query** - Server state management
+- **Zod** - Schema validation
 
-### Ferramentas de Desenvolvimento
+### Development Tools
 
-- **Turbopack** - Bundler ultra-rápido
-- **ESLint** - Linting de código
-- **PostCSS** - Processamento CSS
-- **PNPM** - Gerenciador de pacotes
+- **Turbopack** - Ultra-fast bundler
+- **ESLint** - Code linting
+- **PostCSS** - CSS processing
+- **PNPM** - Package manager
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 zanini/
 ├── src/
 │   ├── app/                    # App Router (Next.js 15)
 │   │   ├── api/               # API Routes
-│   │   ├── categorias/        # Página de categorias
-│   │   ├── produto/[handle]/  # Páginas dinâmicas de produtos
-│   │   ├── produtos/          # Listagem de produtos
-│   │   ├── search/            # Busca e filtros
-│   │   └── sobre-nos/         # Página institucional
-│   ├── components/            # Componentes React
-│   │   ├── ui/               # Componentes base (Design System)
-│   │   ├── hero.tsx          # Seção principal
-│   │   ├── shopping-cart.tsx # Carrinho de compras
-│   │   └── ...               # Outros componentes
-│   ├── contexts/             # Contextos React
+│   │   ├── categorias/        # Categories page
+│   │   ├── produto/[handle]/  # Dynamic product pages
+│   │   ├── produtos/          # Products listing
+│   │   ├── search/            # Search and filters
+│   │   └── sobre-nos/         # About us page
+│   ├── components/            # React components
+│   │   ├── ui/               # Base components (Design System)
+│   │   ├── hero.tsx          # Main section
+│   │   ├── shopping-cart.tsx # Shopping cart
+│   │   └── ...               # Other components
+│   ├── contexts/             # React contexts
 │   ├── hooks/                # Custom Hooks
-│   ├── lib/                  # Utilitários e configurações
-│   │   ├── shopify/          # Integração Shopify
-│   │   └── cloudflare/       # Integração Cloudflare
-│   └── providers/            # Providers React
-├── public/                   # Arquivos estáticos
-└── ...                      # Configurações do projeto
+│   ├── lib/                  # Utilities and configurations
+│   │   ├── shopify/          # Shopify integration
+│   │   └── cloudflare/       # Cloudflare integration
+│   └── providers/            # React providers
+├── public/                   # Static files
+└── ...                      # Project configurations
 ```
 
 ## 🎨 Design System
 
-O projeto segue um design system consistente baseado em:
+The project follows a consistent design system based on:
 
-### Cores
+### Colors
 
-- **Primary**: Cor principal da marca
-- **Secondary**: Cor secundária
-- **Accent**: Cor de destaque
-- **Muted**: Cores suaves para textos secundários
+- **Primary**: Main brand color
+- **Secondary**: Secondary color
+- **Accent**: Highlight color
+- **Muted**: Soft colors for secondary text
 
-### Tipografia
+### Typography
 
 - **Font**: Inter (Google Fonts)
-- **Escalas**: Responsivas com Tailwind CSS
-- **Hierarquia**: H1-H6 bem definidos
+- **Scales**: Responsive with Tailwind CSS
+- **Hierarchy**: Well-defined H1-H6
 
-### Componentes
+### Components
 
-- **Atomic Design**: Componentes atômicos reutilizáveis
-- **Acessibilidade**: ARIA labels e navegação por teclado
-- **Responsividade**: Mobile-first approach
+- **Atomic Design**: Reusable atomic components
+- **Accessibility**: ARIA labels and keyboard navigation
+- **Responsiveness**: Mobile-first approach
 
-## 📱 Páginas e Funcionalidades
+## 📱 Pages and Features
 
-### 🏠 Página Inicial
+### 🏠 Homepage
 
-- Hero section com animações
-- Showcase de produtos promocionais
-- Produtos mais vendidos
-- Seção de coleções
-- Depoimentos de clientes
+- Hero section with animations
+- Promotional products showcase
+- Best-selling products
+- Collections section
+- Customer testimonials
 
 ### 🛍️ E-commerce
 
-- **Catálogo de Produtos**: Listagem com filtros e ordenação
-- **Página do Produto**: Detalhes, galeria e personalização
-- **Carrinho de Compras**: Gerenciamento de itens
-- **Busca**: Sistema de busca avançada
-- **Categorias**: Organização por categorias
+- **Product Catalog**: Listing with filters and sorting
+- **Product Page**: Details, gallery and personalization
+- **Shopping Cart**: Item management
+- **Search**: Advanced search system
+- **Categories**: Organization by categories
 
-### 📄 Páginas Institucionais
+### 📄 Institutional Pages
 
-- **Sobre Nós**: História, valores e equipe
-- **Categorias**: Listagem de categorias de produtos
+- **About Us**: History, values and team
+- **Categories**: Product categories listing
 
-### 🎨 Personalização
+### 🎨 Personalization
 
-- **Upload de Imagens**: Sistema de upload para personalização
-- **Preview**: Visualização em tempo real
-- **Validação**: Validação de formatos e tamanhos
+- **Image Upload**: Upload system for personalization
+- **Preview**: Real-time visualization
+- **Validation**: Format and size validation
 
-### SEO e Performance
+### SEO and Performance
 
-- **Meta Tags**: Otimizadas para cada página
-- **Sitemap**: Geração automática
-- **Robots.txt**: Configuração de crawlers
-- **Open Graph**: Compartilhamento social
-- **Schema Markup**: Dados estruturados
+- **Meta Tags**: Optimized for each page
+- **Sitemap**: Automatic generation
+- **Robots.txt**: Crawler configuration
+- **Open Graph**: Social sharing
+- **Schema Markup**: Structured data
 
-## 🔧 Integrações e Configurações
+## 🔧 Integrations and Configurations
 
 ### Shopify Storefront API
 
-- **GraphQL Queries**: Otimizadas para produtos e coleções
-- **Carrinho de Compras**: Gerenciamento completo de estado
-- **Checkout**: Redirecionamento seguro para finalização
-- **Webhooks**: Sincronização automática de dados
+- **GraphQL Queries**: Optimized for products and collections
+- **Shopping Cart**: Complete state management
+- **Checkout**: Secure redirection for completion
+- **Webhooks**: Automatic data synchronization
 
 ### Cloudflare R2
 
-- **Upload de Arquivos**: Sistema para personalização de produtos
-- **CDN Global**: Distribuição otimizada de assets
-- **Armazenamento Seguro**: Backup de imagens personalizadas
+- **File Upload**: System for product personalization
+- **Global CDN**: Optimized asset distribution
+- **Secure Storage**: Backup of personalized images
 
 ### Google Analytics
 
-- **Google Tag Manager**: Rastreamento completo de eventos
-- **E-commerce Tracking**: Monitoramento de conversões
-- **Performance Monitoring**: Métricas de Core Web Vitals
+- **Google Tag Manager**: Complete event tracking
+- **E-commerce Tracking**: Conversion monitoring
+- **Performance Monitoring**: Core Web Vitals metrics
 
-## ⚙️ Funcionalidades Técnicas Implementadas
+## ⚙️ Technical Features Implemented
 
-### Sistema de Carrinho
+### Shopping Cart System
 
-- **Context API**: Gerenciamento global de estado
-- **Persistência Local**: Dados salvos no localStorage
-- **Sincronização Shopify**: Integração com API do Shopify
-- **Validação**: Verificação de disponibilidade de produtos
+- **Context API**: Global state management
+- **Local Persistence**: Data saved in localStorage
+- **Shopify Sync**: Integration with Shopify API
+- **Validation**: Product availability verification
 
-### Upload e Personalização
+### Upload and Personalization
 
-- **Validação de Arquivos**: Tipos e tamanhos permitidos
-- **Preview em Tempo Real**: Visualização instantânea
-- **Compressão de Imagens**: Otimização automática
-- **Armazenamento Seguro**: Upload para Cloudflare R2
+- **File Validation**: Allowed types and sizes
+- **Real-time Preview**: Instant visualization
+- **Image Compression**: Automatic optimization
+- **Secure Storage**: Upload to Cloudflare R2
 
-### Sistema de Busca e Filtros
+### Search and Filter System
 
-- **Busca Semântica**: Pesquisa inteligente de produtos
-- **Filtros Avançados**: Por categoria, preço, disponibilidade
-- **Ordenação**: Múltiplos critérios de ordenação
-- **Paginação**: Navegação otimizada de resultados
+- **Semantic Search**: Intelligent product search
+- **Advanced Filters**: By category, price, availability
+- **Sorting**: Multiple sorting criteria
+- **Pagination**: Optimized result navigation
 
-### Responsividade e Acessibilidade
+### Responsiveness and Accessibility
 
-- **Mobile First**: Design otimizado para dispositivos móveis
-- **Breakpoints**: Sistema responsivo com Tailwind CSS
-- **ARIA Labels**: Navegação acessível para screen readers
-- **Keyboard Navigation**: Suporte completo ao teclado
+- **Mobile First**: Design optimized for mobile devices
+- **Breakpoints**: Responsive system with Tailwind CSS
+- **ARIA Labels**: Accessible navigation for screen readers
+- **Keyboard Navigation**: Complete keyboard support
 
 ## 📊 Performance
 
-### Métricas Otimizadas
+### Optimized Metrics
 
-- **Lighthouse Score**: 90+ em todas as categorias
-- **Core Web Vitals**: Otimizado
-- **Bundle Size**: Minimizado com tree-shaking
-- **Images**: Otimizadas com Next.js Image
+- **Lighthouse Score**: 90+ in all categories
+- **Core Web Vitals**: Optimized
+- **Bundle Size**: Minimized with tree-shaking
+- **Images**: Optimized with Next.js Image
 
-### Estratégias de Performance
+### Performance Strategies
 
-- **Code Splitting**: Carregamento sob demanda
-- **Lazy Loading**: Componentes e imagens
-- **Caching**: Estratégias de cache otimizadas
-- **CDN**: Distribuição global de assets
+- **Code Splitting**: On-demand loading
+- **Lazy Loading**: Components and images
+- **Caching**: Optimized caching strategies
+- **CDN**: Global asset distribution
 
-## 🧪 Qualidade e Padrões
+## 🧪 Quality and Standards
 
-### Linting e Formatação
+### Linting and Formatting
 
-- **ESLint**: Configurado com regras do Next.js
-- **TypeScript**: Verificação de tipos em tempo de compilação
-- **Prettier**: Formatação automática de código
+- **ESLint**: Configured with Next.js rules
+- **TypeScript**: Type checking at compile time
+- **Prettier**: Automatic code formatting
 
-### Padrões de Código
+### Code Standards
 
-- **Conventional Commits**: Mensagens de commit padronizadas
-- **TypeScript**: Tipagem obrigatória em todo o projeto
-- **Componentes Funcionais**: Uso de hooks e functional components
-- **Clean Code**: Código limpo e bem documentado
+- **Conventional Commits**: Standardized commit messages
+- **TypeScript**: Mandatory typing throughout the project
+- **Functional Components**: Use of hooks and functional components
+- **Clean Code**: Clean and well-documented code
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is under the MIT license. See the [LICENSE](LICENSE) file for more details.
 
-## 📞 Suporte
+## 📞 Support
 
-Para suporte e dúvidas:
+For support and questions:
 
-- **Email**: mtguerson@gmail.com
 - **Website**: [zaninidigital.com.br](https://zaninidigital.com.br)
-- **Issues**: Use o sistema de issues do GitHub
+- **Issues**: Use the GitHub issues system
 
 ---
 
-**Desenvolvido com ❤️ por @mtguerson**
+**Developed with ❤️ by @mtguerson**
