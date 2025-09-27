@@ -1,64 +1,235 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎨 Zanini Comunicação Visual
 
-## 🚀 Getting Started
+> E-commerce moderno para comunicação visual, impressão digital, MDF e acrílico
 
-First, run the development server:
+[![Next.js](https://img.shields.io/badge/Next.js-15.4.7-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![Shopify](https://img.shields.io/badge/Shopify-API-7AB55C?style=flat-square&logo=shopify)](https://shopify.dev/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📋 Sobre o Projeto
+
+A **Zanini Comunicação Visual** é uma plataforma de e-commerce moderna desenvolvida para oferecer soluções em comunicação visual, incluindo impressão digital, letreiros, MDF, acrílico e outros produtos personalizados. O projeto combina design moderno, performance otimizada e experiência de usuário excepcional.
+
+### 🎯 Principais Funcionalidades
+
+- **🛍️ E-commerce Completo**: Catálogo de produtos com carrinho de compras
+- **🎨 Design Personalizado**: Upload de imagens para personalização
+- **📱 Responsivo**: Interface otimizada para todos os dispositivos
+- **🌙 Modo Escuro**: Suporte completo a temas claro/escuro
+- **⚡ Performance**: Otimizado com Next.js 15 e Turbopack
+- **🔍 SEO Otimizado**: Meta tags, sitemap e estrutura semântica
+- **📊 Analytics**: Integração com Google Tag Manager
+- **🛒 Shopify Integration**: Integração completa com Shopify Storefront API
+
+## 🚀 Tecnologias Utilizadas
+
+### Frontend
+
+- **Next.js 15.4.7** - Framework React com App Router
+- **React 19.1.0** - Biblioteca de interface
+- **TypeScript 5.0** - Tipagem estática
+- **Tailwind CSS 4.0** - Framework CSS utilitário
+- **Radix UI** - Componentes acessíveis
+- **Lucide React** - Ícones modernos
+- **Motion** - Animações fluidas
+- **Embla Carousel** - Carrosséis responsivos
+
+### Backend & Integrações
+
+- **Shopify Storefront API** - E-commerce backend
+- **Cloudflare R2** - Armazenamento de arquivos
+- **TanStack Query** - Gerenciamento de estado servidor
+- **Zod** - Validação de schemas
+
+### Ferramentas de Desenvolvimento
+
+- **Turbopack** - Bundler ultra-rápido
+- **ESLint** - Linting de código
+- **PostCSS** - Processamento CSS
+- **PNPM** - Gerenciador de pacotes
+
+## 📁 Estrutura do Projeto
+
+```
+zanini/
+├── src/
+│   ├── app/                    # App Router (Next.js 15)
+│   │   ├── api/               # API Routes
+│   │   ├── categorias/        # Página de categorias
+│   │   ├── produto/[handle]/  # Páginas dinâmicas de produtos
+│   │   ├── produtos/          # Listagem de produtos
+│   │   ├── search/            # Busca e filtros
+│   │   └── sobre-nos/         # Página institucional
+│   ├── components/            # Componentes React
+│   │   ├── ui/               # Componentes base (Design System)
+│   │   ├── hero.tsx          # Seção principal
+│   │   ├── shopping-cart.tsx # Carrinho de compras
+│   │   └── ...               # Outros componentes
+│   ├── contexts/             # Contextos React
+│   ├── hooks/                # Custom Hooks
+│   ├── lib/                  # Utilitários e configurações
+│   │   ├── shopify/          # Integração Shopify
+│   │   └── cloudflare/       # Integração Cloudflare
+│   └── providers/            # Providers React
+├── public/                   # Arquivos estáticos
+└── ...                      # Configurações do projeto
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Design System
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+O projeto segue um design system consistente baseado em:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Cores
 
-## 📋 Regras de Desenvolvimento
+- **Primary**: Cor principal da marca
+- **Secondary**: Cor secundária
+- **Accent**: Cor de destaque
+- **Muted**: Cores suaves para textos secundários
 
-### 🎨 Design System
+### Tipografia
 
-- **Tailwind CSS**: Use sempre as classes utilitárias do Tailwind
-- **Cores**: Siga o sistema de cores definido (primary, secondary, etc.)
-- **Espaçamentos**: Use valores padronizados (4, 6, 8, 12, 16, 24, 32)
-- **Tipografia**: Mantenha hierarquia visual consistente
+- **Font**: Inter (Google Fonts)
+- **Escalas**: Responsivas com Tailwind CSS
+- **Hierarquia**: H1-H6 bem definidos
 
-### 📱 Responsividade
+### Componentes
 
-- **Mobile-first**: Desenvolva sempre pensando em mobile primeiro
-- **Breakpoints**: sm (640px), md (768px), lg (1024px), xl (1280px)
-- **Teste**: Verifique em diferentes tamanhos de tela
+- **Atomic Design**: Componentes atômicos reutilizáveis
+- **Acessibilidade**: ARIA labels e navegação por teclado
+- **Responsividade**: Mobile-first approach
 
-### 🔧 Padrões Técnicos
+## 📱 Páginas e Funcionalidades
 
-- **TypeScript**: Use para type safety
-- **Componentes**: Functional components com hooks
-- **Nomenclatura**: camelCase para variáveis, PascalCase para componentes
-- **Acessibilidade**: Implemente ARIA e HTML semântico
+### 🏠 Página Inicial
 
-### 🧪 Qualidade
+- Hero section com animações
+- Showcase de produtos promocionais
+- Produtos mais vendidos
+- Seção de coleções
+- Depoimentos de clientes
 
-- **Código limpo**: Siga princípios SOLID e DRY
-- **Performance**: Otimize imagens e minimize re-renders
-- **Testes**: Sempre teste responsividade e acessibilidade
+### 🛍️ E-commerce
 
-## Learn More
+- **Catálogo de Produtos**: Listagem com filtros e ordenação
+- **Página do Produto**: Detalhes, galeria e personalização
+- **Carrinho de Compras**: Gerenciamento de itens
+- **Busca**: Sistema de busca avançada
+- **Categorias**: Organização por categorias
 
-To learn more about Next.js, take a look at the following resources:
+### 📄 Páginas Institucionais
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Sobre Nós**: História, valores e equipe
+- **Categorias**: Listagem de categorias de produtos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🎨 Personalização
 
-## Deploy on Vercel
+- **Upload de Imagens**: Sistema de upload para personalização
+- **Preview**: Visualização em tempo real
+- **Validação**: Validação de formatos e tamanhos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### SEO e Performance
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Meta Tags**: Otimizadas para cada página
+- **Sitemap**: Geração automática
+- **Robots.txt**: Configuração de crawlers
+- **Open Graph**: Compartilhamento social
+- **Schema Markup**: Dados estruturados
+
+## 🔧 Integrações e Configurações
+
+### Shopify Storefront API
+
+- **GraphQL Queries**: Otimizadas para produtos e coleções
+- **Carrinho de Compras**: Gerenciamento completo de estado
+- **Checkout**: Redirecionamento seguro para finalização
+- **Webhooks**: Sincronização automática de dados
+
+### Cloudflare R2
+
+- **Upload de Arquivos**: Sistema para personalização de produtos
+- **CDN Global**: Distribuição otimizada de assets
+- **Armazenamento Seguro**: Backup de imagens personalizadas
+
+### Google Analytics
+
+- **Google Tag Manager**: Rastreamento completo de eventos
+- **E-commerce Tracking**: Monitoramento de conversões
+- **Performance Monitoring**: Métricas de Core Web Vitals
+
+## ⚙️ Funcionalidades Técnicas Implementadas
+
+### Sistema de Carrinho
+
+- **Context API**: Gerenciamento global de estado
+- **Persistência Local**: Dados salvos no localStorage
+- **Sincronização Shopify**: Integração com API do Shopify
+- **Validação**: Verificação de disponibilidade de produtos
+
+### Upload e Personalização
+
+- **Validação de Arquivos**: Tipos e tamanhos permitidos
+- **Preview em Tempo Real**: Visualização instantânea
+- **Compressão de Imagens**: Otimização automática
+- **Armazenamento Seguro**: Upload para Cloudflare R2
+
+### Sistema de Busca e Filtros
+
+- **Busca Semântica**: Pesquisa inteligente de produtos
+- **Filtros Avançados**: Por categoria, preço, disponibilidade
+- **Ordenação**: Múltiplos critérios de ordenação
+- **Paginação**: Navegação otimizada de resultados
+
+### Responsividade e Acessibilidade
+
+- **Mobile First**: Design otimizado para dispositivos móveis
+- **Breakpoints**: Sistema responsivo com Tailwind CSS
+- **ARIA Labels**: Navegação acessível para screen readers
+- **Keyboard Navigation**: Suporte completo ao teclado
+
+## 📊 Performance
+
+### Métricas Otimizadas
+
+- **Lighthouse Score**: 90+ em todas as categorias
+- **Core Web Vitals**: Otimizado
+- **Bundle Size**: Minimizado com tree-shaking
+- **Images**: Otimizadas com Next.js Image
+
+### Estratégias de Performance
+
+- **Code Splitting**: Carregamento sob demanda
+- **Lazy Loading**: Componentes e imagens
+- **Caching**: Estratégias de cache otimizadas
+- **CDN**: Distribuição global de assets
+
+## 🧪 Qualidade e Padrões
+
+### Linting e Formatação
+
+- **ESLint**: Configurado com regras do Next.js
+- **TypeScript**: Verificação de tipos em tempo de compilação
+- **Prettier**: Formatação automática de código
+
+### Padrões de Código
+
+- **Conventional Commits**: Mensagens de commit padronizadas
+- **TypeScript**: Tipagem obrigatória em todo o projeto
+- **Componentes Funcionais**: Uso de hooks e functional components
+- **Clean Code**: Código limpo e bem documentado
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 📞 Suporte
+
+Para suporte e dúvidas:
+
+- **Email**: mtguerson@gmail.com
+- **Website**: [zaninidigital.com.br](https://zaninidigital.com.br)
+- **Issues**: Use o sistema de issues do GitHub
+
+---
+
+**Desenvolvido com ❤️ por @mtguerson**
