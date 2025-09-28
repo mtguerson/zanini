@@ -32,7 +32,7 @@ export function Header() {
   }, [path]);
 
   return (
-    <header className="relative">
+    <header className="sticky top-0 z-50 bg-background">
       {/* Banner superior */}
       <div className="bg-primary text-center flex justify-center items-center w-full">
         <span className="text-white p-2 text-sm">
@@ -142,7 +142,7 @@ export function Header() {
               ease: 'easeInOut',
               type: 'tween',
             }}
-            className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-50"
+            className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-40"
           >
             <motion.div
               initial={{ opacity: 0 }}
@@ -214,7 +214,7 @@ export function Header() {
         )}
       </AnimatePresence>
 
-      <div className="md:hidden flex w-full justify-center items-center mt-4">
+      <div className="md:hidden flex w-full justify-center items-center py-2">
         <Suspense>
           <SearchInput />
         </Suspense>

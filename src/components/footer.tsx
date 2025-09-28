@@ -15,6 +15,9 @@ import {
 } from './ui/navigation-menu';
 import Image from 'next/image';
 import logo from '@/assets/logo.webp';
+import googleSafe from '@/assets/google-safe.webp';
+import ra1000 from '@/assets/ra1000.webp';
+import sslSeguro from '@/assets/ssl-seguro.svg';
 import Link from 'next/link';
 
 export async function Footer() {
@@ -22,7 +25,7 @@ export async function Footer() {
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
       <div className="container mx-auto px-6 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="relative flex justify-center items-center">
+          <div className="relative flex md:justify-center items-center">
             <Link href="/" title="Ir para a página inicial">
               <Image
                 src={logo}
@@ -115,7 +118,47 @@ export async function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
+
+        {/* Seção de Certificações e Segurança */}
+        <div className="mt-12 border-t pt-8">
+          <h3 className="mb-6 text-center text-lg font-semibold">
+            Certificações e Segurança
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            <div className="flex flex-col items-center gap-2">
+              <Image
+                src={sslSeguro}
+                alt="SSL Seguro"
+                title="Site protegido com SSL"
+                width={160}
+                height={160}
+                className="transition-transform hover:scale-105"
+              />
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <Image
+                src={googleSafe}
+                alt="Google Safe Browsing"
+                title="Site verificado pelo Google Safe Browsing"
+                width={160}
+                height={160}
+                className="transition-transform hover:scale-105"
+              />
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <Image
+                src={ra1000}
+                alt="RA 1000"
+                title="Certificação RA 1000"
+                width={160}
+                height={160}
+                className="transition-transform hover:scale-105"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
           <p className="text-sm text-muted-foreground">
             © 2025 Zanini Comunicação Visual. Todos os direitos reservados.
           </p>
