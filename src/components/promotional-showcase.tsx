@@ -351,9 +351,9 @@ export function PromotionalShowcase() {
         <div className="mt-16 lg:mt-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: '500+', label: 'Produtos Únicos', icon: '🎁' },
+              { value: '50+', label: 'Produtos Únicos', icon: '🎁' },
               { value: '10k+', label: 'Clientes Felizes', icon: '😊' },
-              { value: '15+', label: 'Anos de Experiência', icon: '⭐' },
+              { value: '35+', label: 'Anos de Experiência', icon: '⭐' },
               { value: '100%', label: 'Personalização', icon: '✨' },
             ].map((stat, index) => (
               <div
