@@ -8,6 +8,7 @@ import { ReactQueryProvider } from '@/providers/react-query';
 import { Footer } from '@/components/footer';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
+import { WhatsAppButton } from '@/components/whatsapp-button';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -111,6 +112,7 @@ export default function RootLayout({
               <Header />
               {children}
               <Footer />
+              <WhatsAppButton />
             </CartProvider>
           </ReactQueryProvider>
         </ThemeProvider>
