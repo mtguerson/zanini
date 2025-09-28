@@ -51,7 +51,7 @@ export function Hero() {
   ];
 
   return (
-    <section className="py-12 flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-accent/20 to-primary/5">
+    <section className="md:py-12 py-6 flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-accent/20 to-primary/5">
       {/* Main Content */}
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Hero Title */}
