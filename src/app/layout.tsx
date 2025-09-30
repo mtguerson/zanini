@@ -94,6 +94,42 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','GTM-WVNX9GSD');`}
         </Script>
         {/* End Google Tag Manager */}
+        {/* Dados estruturados: Organization */}
+        <Script
+          id="ld-org"
+          type="application/ld+json"
+          strategy="afterInteractive"
+        >
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Zanini Comunicação Visual',
+            url: 'https://zaninidigital.com.br',
+            logo: 'https://zaninidigital.com.br/og-image.jpeg',
+            sameAs: [
+              // Adicione perfis oficiais quando existirem
+            ],
+          })}
+        </Script>
+        {/* Dados estruturados: WebSite com Sitelinks SearchBox */}
+        <Script
+          id="ld-website"
+          type="application/ld+json"
+          strategy="afterInteractive"
+        >
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Zanini Comunicação Visual',
+            url: 'https://zaninidigital.com.br',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target:
+                'https://zaninidigital.com.br/search?q={search_term_string}',
+              'query-input': 'required name=search_term_string',
+            },
+          })}
+        </Script>
       </head>
       <body className={`antialiased ${inter.className}`}>
         {/* Google Tag Manager (noscript) */}
