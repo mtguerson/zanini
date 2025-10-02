@@ -11,7 +11,7 @@ export function Hero() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const heroTexts = [
-    'Ideia',
+    'Nova Ideia',
     'Identidade Visual',
     'Arte Personalizada',
     'Marca em Sucesso',

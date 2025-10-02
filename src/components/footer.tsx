@@ -24,8 +24,8 @@ export async function Footer() {
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
       <div className="container mx-auto px-6 py-12 md:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="relative flex md:justify-center items-center">
+        <div className="grid gap-12 text-center md:text-left md:grid-cols-2 lg:grid-cols-4">
+          <div className="relative flex justify-center md:justify-center items-center">
             <Link href="/" title="Ir para a página inicial">
               <Image
                 src={logo}
@@ -41,7 +41,7 @@ export async function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Links rápidos</h3>
             <NavigationMenu className="max-w-none *:w-full">
-              <NavigationMenuList className="flex-col items-start gap-0">
+              <NavigationMenuList className="flex-col items-center md:items-start gap-0">
                 <NavigationMenuItem>
                   <NavigationMenuLink href="/categorias" className="py-1">
                     Categorias
@@ -66,7 +66,7 @@ export async function Footer() {
           </div>
           <div className="relative">
             <h3 className="mb-4 text-lg font-semibold">Siga-nos</h3>
-            <div className="mb-6 flex space-x-4">
+            <div className="mb-6 flex justify-center md:justify-start space-x-4">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
