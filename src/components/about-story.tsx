@@ -24,7 +24,7 @@ export function AboutStory() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <Card className="group hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-8 text-center space-y-4">
+              <CardContent className="px-8 py-4 text-center space-y-4">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
                   <Lightbulb className="w-8 h-8 text-primary" />
                 </div>
@@ -41,7 +41,7 @@ export function AboutStory() {
             </Card>
 
             <Card className="group hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-8 text-center space-y-4">
+              <CardContent className="px-8 py-4 text-center space-y-4">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
                   <Target className="w-8 h-8 text-primary" />
                 </div>
@@ -58,7 +58,7 @@ export function AboutStory() {
             </Card>
 
             <Card className="group hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-8 text-center space-y-4">
+              <CardContent className="px-8 py-4 text-center space-y-4">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
                   <TrendingUp className="w-8 h-8 text-primary" />
                 </div>
