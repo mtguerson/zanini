@@ -12,6 +12,7 @@ import FileUpload from './file-upload';
 import { toast } from 'sonner';
 import { createCartAction } from '@/actions/create-cart';
 import { useMutation } from '@tanstack/react-query';
+import { usePathname } from 'next/navigation';
 
 interface ProductInfoProps {
   product: Product;
@@ -29,6 +30,7 @@ export function ProductInfo({
   const [quantity, setQuantity] = useState(1);
   const [customImageUrl, setCustomImageUrl] = useState<string | null>(null);
   const { addProduct, toggleCart } = useCart();
+  const pathname = usePathname();
 
   const { mutateAsync: createCart, isPending } = useMutation({
     mutationFn: () =>
@@ -98,26 +100,31 @@ export function ProductInfo({
     }
   }
 
-  const shareData = {
-    title: product.title,
-    text: `Confira este produto: ${product.title}`,
-    url: typeof window !== 'undefined' ? window.location.href : '',
-  };
-
   async function handleShare() {
-    if (navigator.share) {
-      try {
-        await navigator.share(shareData);
-      } catch (error) {
-        console.error(error);
-        toast.error('Não foi possível compartilhar o produto.');
-      }
-    } else {
-      try {
-        await navigator.clipboard.writeText(shareData.url);
+    try {
+      const currentUrl = window.location.href;
+
+      if (navigator.share) {
+        const mobileShareData = {
+          title: product.title,
+          text: `Confira este produto: ${product.title}`,
+          url: currentUrl,
+        };
+
+        await navigator.share(mobileShareData);
+      } else {
+        await navigator.clipboard.writeText(currentUrl);
         toast.success('Link do produto copiado para a área de transferência!');
-      } catch (error) {
-        toast.error('Não foi possível copiar o link. Tente manualmente.');
+      }
+    } catch (error) {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        toast.success('Link do produto copiado para a área de transferência!');
+      } catch (clipboardError) {
+        toast.error(
+          'Não foi possível copiar automaticamente. A URL é: ' +
+            window.location.href
+        );
       }
     }
   }

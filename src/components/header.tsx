@@ -142,7 +142,7 @@ export function Header() {
               ease: 'easeInOut',
               type: 'tween',
             }}
-            className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-40"
+            className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-background-200 shadow-lg z-40"
           >
             <motion.div
               initial={{ opacity: 0 }}
@@ -159,10 +159,10 @@ export function Header() {
                 >
                   <Link
                     href="/produtos"
-                    className={`text-base hover:text-primary cursor-pointer transition-all duration-200 py-2 border-b border-gray-100 ${
+                    className={`text-base hover:text-primary cursor-pointer transition-all duration-200 py-2 border-b border-background-100 ${
                       path === '/produtos'
                         ? 'text-primary font-semibold'
-                        : 'hover:bg-gray-50 rounded-md px-2 -mx-2'
+                        : 'hover:bg-background-50 rounded-md px-2 -mx-2'
                     }`}
                     onClick={closeMenu}
                     title="Ver produtos"
@@ -178,10 +178,10 @@ export function Header() {
                 >
                   <Link
                     href="/categorias"
-                    className={`text-base hover:text-primary cursor-pointer transition-all duration-200 py-2 border-b border-gray-100 ${
+                    className={`text-base hover:text-primary cursor-pointer transition-all duration-200 py-2 border-b border-background-100 ${
                       path === '/categorias'
                         ? 'text-primary font-semibold'
-                        : 'hover:bg-gray-50 rounded-md px-2 -mx-2'
+                        : 'hover:bg-background-50 rounded-md px-2 -mx-2'
                     }`}
                     onClick={closeMenu}
                     title="Ver categorias"
@@ -197,10 +197,10 @@ export function Header() {
                 >
                   <Link
                     href="/sobre-nos"
-                    className={`text-base hover:text-primary cursor-pointer transition-all duration-200 py-2 border-b border-gray-100 ${
+                    className={`text-base hover:text-primary cursor-pointer transition-all duration-200 py-2 border-b border-background-100 ${
                       path === '/sobre-nos'
                         ? 'text-primary font-semibold'
-                        : 'hover:bg-gray-50 rounded-md px-2 -mx-2'
+                        : 'hover:bg-background-100 rounded-md px-2 -mx-2'
                     }`}
                     onClick={closeMenu}
                     title="Sobre nós"

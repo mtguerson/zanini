@@ -69,7 +69,6 @@ export function ProductGallery({
             src={currentImage.url}
             alt={currentImage.altText || title}
             fill
-            quality={100}
             className="transition-transform duration-300 group-hover:scale-105"
             priority
             title={currentImage.altText || title}

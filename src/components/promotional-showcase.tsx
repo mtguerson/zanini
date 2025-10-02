@@ -169,12 +169,14 @@ export function PromotionalShowcase() {
               <div className="space-y-6">
                 <div className="space-y-4">
                   <h3 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight">
-                    <span className="block">{currentItem.title}</span>
-                    <span className="block text-primary">
+                    <span className="md:justify-start flex items-center justify-center">
+                      {currentItem.title}
+                    </span>
+                    <span className="md:justify-start flex items-center justify-center text-primary">
                       {currentItem.subtitle}
                     </span>
                   </h3>
-                  <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+                  <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed md:justify-start flex items-center justify-center">
                     {currentItem.description}
                   </p>
                 </div>
@@ -306,7 +308,7 @@ export function PromotionalShowcase() {
         </div>
 
         {/* Grid de Miniaturas melhorado */}
-        <div className="mt-16 lg:mt-20">
+        <div className="hidden md:block mt-16 lg:mt-20">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
             {promotionalItems.map((item, index) => (
               <button
