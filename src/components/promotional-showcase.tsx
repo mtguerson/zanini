@@ -169,14 +169,14 @@ export function PromotionalShowcase() {
               <div className="space-y-6">
                 <div className="space-y-4">
                   <h3 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight">
-                    <span className="md:justify-start flex items-center justify-center">
+                    <span className="md:justify-start flex items-center text-center justify-center">
                       {currentItem.title}
                     </span>
-                    <span className="md:justify-start flex items-center justify-center text-primary">
+                    <span className="md:justify-start flex items-center justify-center text-center text-primary">
                       {currentItem.subtitle}
                     </span>
                   </h3>
-                  <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed md:justify-start flex items-center justify-center">
+                  <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed md:justify-start flex items-center text-center justify-center">
                     {currentItem.description}
                   </p>
                 </div>
