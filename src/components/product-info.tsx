@@ -32,6 +32,9 @@ export function ProductInfo({
   const { addProduct, toggleCart } = useCart();
   const pathname = usePathname();
 
+  const interestRate = 0.0168; // 1.68% ao mês
+  const installments = 12;
+
   const { mutateAsync: createCart, isPending } = useMutation({
     mutationFn: () =>
       createCartAction({
@@ -187,7 +190,15 @@ export function ProductInfo({
           </p>
         )}
         <p className="text-sm text-muted-foreground">
-          ou 12x de {formatPrice((originalPrice / 12).toString())} sem juros
+          ou 12x de{' '}
+          {formatPrice(
+            (
+              (originalPrice * Math.pow(1 + interestRate, installments)) /
+              installments
+            )
+              .toFixed(2)
+              .toString()
+          )}
         </p>
       </div>
 

@@ -172,7 +172,7 @@ export function PromotionalShowcase() {
                     <span className="md:justify-start flex items-center text-center justify-center">
                       {currentItem.title}
                     </span>
-                    <span className="md:justify-start flex items-center justify-center text-center text-primary">
+                    <span className="md:justify-start flex items-center md:text-start justify-center text-center text-primary">
                       {currentItem.subtitle}
                     </span>
                   </h3>
