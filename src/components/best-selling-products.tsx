@@ -1,19 +1,14 @@
 import { getProducts } from '@/lib/shopify';
 import { Badge } from './ui/badge';
 import { ArrowRight, TrendingUp } from 'lucide-react';
-import { ProductCard } from './product-card';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from './ui/carousel';
 import { Button } from './ui/button';
 import Link from 'next/link';
+import { BestSellingProductsCarousel } from './best-selling-products-carousel';
 
 export async function BestSellingProducts() {
   const bestSellingProducts = await getProducts({ sortKey: 'BEST_SELLING' });
+
+  const top10BestSellingProducts = bestSellingProducts.slice(0, 10);
 
   return (
     <div className="flex flex-col mx-auto p-12 gap-4 max-w-7xl justify-center items-center">
@@ -32,25 +27,9 @@ export async function BestSellingProducts() {
         milhares de pessoas.
       </p>
 
-      <Carousel
-        opts={{
-          align: 'center',
-        }}
-        className="w-full max-w-screen"
-      >
-        <CarouselContent>
-          {bestSellingProducts.map((product) => (
-            <CarouselItem
-              key={product.id}
-              className="md:basis-1/2 lg:basis-1/4 py-2"
-            >
-              <ProductCard product={product} key={product.id} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="cursor-pointer" />
-        <CarouselNext className="cursor-pointer" />
-      </Carousel>
+      <BestSellingProductsCarousel
+        bestSellingProducts={top10BestSellingProducts}
+      />
 
       <Button className="mt-6 group text-white" size="lg" asChild>
         <Link href="/produtos" title="Ver todos os produtos">
