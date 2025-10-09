@@ -9,6 +9,7 @@ import { Footer } from '@/components/footer';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
 import { WhatsAppButton } from '@/components/whatsapp-button';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -153,6 +154,7 @@ export default function RootLayout({
           </ReactQueryProvider>
         </ThemeProvider>
         <Toaster richColors />
+        <Analytics />
       </body>
     </html>
   );
