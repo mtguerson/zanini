@@ -3,7 +3,7 @@ import { AboutHero } from '@/components/about-hero';
 import { AboutStory } from '@/components/about-story';
 import { AboutValues } from '@/components/about-values';
 import { AboutTeam } from '@/components/about-team';
-import { AboutCommitments } from '@/components/about-commitments';
+import { OurLocation } from '@/components/our-location';
 
 export const metadata: Metadata = {
   title: 'Sobre Nós | Zanini',
@@ -18,7 +18,7 @@ export default function AboutPage() {
       <AboutStory />
       <AboutValues />
       <AboutTeam />
-      <AboutCommitments />
+      <OurLocation />
     </div>
   );
 }
