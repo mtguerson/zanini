@@ -3,6 +3,7 @@ import { BestSellingProducts } from '@/components/best-selling-products';
 import { PromotionalShowcase } from '@/components/promotional-showcase';
 import { TestImonials } from '@/components/testimonials';
 import { CollectionsSection } from '@/components/collections-section';
+import { OurLocation } from '@/components/our-location';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <BestSellingProducts />
       <CollectionsSection />
       <TestImonials />
+      <OurLocation />
     </main>
   );
 }
