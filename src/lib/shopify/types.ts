@@ -58,6 +58,9 @@ export type ProductVariant = {
     value: string;
   }[];
   price: Money;
+  metafield: {
+    value?: 'true' | 'false';
+  };
 };
 
 export type ShopifyProduct = {

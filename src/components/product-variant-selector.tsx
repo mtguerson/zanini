@@ -109,41 +109,6 @@ export function ProductVariantSelector({
           </div>
         </div>
       ))}
-
-      {/* Informações da Variante Selecionada */}
-      {selectedVariant && (
-        <div className="p-4 bg-muted/50 rounded-lg space-y-2">
-          <h4 className="font-medium text-foreground">Variante Selecionada</h4>
-          <div className="text-sm text-muted-foreground space-y-1">
-            <p>
-              <strong>Disponibilidade:</strong>{' '}
-              <span
-                className={cn(
-                  'font-medium',
-                  selectedVariant.availableForSale
-                    ? 'text-green-600'
-                    : 'text-destructive'
-                )}
-              >
-                {selectedVariant.availableForSale
-                  ? 'Em estoque'
-                  : 'Indisponível'}
-              </span>
-            </p>
-            {selectedVariant.selectedOptions.length > 0 && (
-              <div>
-                <strong>Opção:</strong>{' '}
-                {selectedVariant.selectedOptions.map((option, index) => (
-                  <span key={option.name}>
-                    {option.name}: {option.value}
-                    {index < selectedVariant.selectedOptions.length - 1 && ', '}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

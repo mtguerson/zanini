@@ -72,6 +72,31 @@ export function CartItem({ item }: CartItemProps) {
                 </Badge>
               </div>
             )}
+
+            <div className="flex flex-wrap gap-1 mt-1">
+              {item.customImageUrl && (
+                <Badge
+                  variant="outline"
+                  className="text-xs text-green-600 border-green-200"
+                >
+                  <span className="flex items-center gap-1">
+                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    Imagem Personalizada
+                  </span>
+                </Badge>
+              )}
+              {item.customText?.trim() && (
+                <Badge
+                  variant="outline"
+                  className="text-xs text-blue-600 border-blue-200"
+                >
+                  <span className="flex items-center gap-1">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    Texto: "{item.customText.trim()}"
+                  </span>
+                </Badge>
+              )}
+            </div>
           </div>
 
           {/* Botão Remover */}
