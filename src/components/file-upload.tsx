@@ -102,7 +102,7 @@ export default function FileUpload({
               <img
                 src={previewUrl}
                 alt={files[0]?.file?.name || 'Uploaded image'}
-                className="size-full object-cover"
+                className="size-full object-contain"
                 title={files[0]?.file?.name || 'Imagem enviada'}
               />
             </div>
