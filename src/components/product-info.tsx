@@ -13,6 +13,7 @@ import { toast } from 'sonner';
 import { createCartAction } from '@/actions/create-cart';
 import { useMutation } from '@tanstack/react-query';
 import { usePathname } from 'next/navigation';
+import { LetterCustomizer } from './letter-customizer';
 
 interface ProductInfoProps {
   product: Product;
@@ -29,11 +30,39 @@ export function ProductInfo({
   const selectedVariant = controlledVariant || internalVariant;
   const [quantity, setQuantity] = useState(1);
   const [customImageUrl, setCustomImageUrl] = useState<string | null>(null);
+  const [customText, setCustomText] = useState<string>('');
   const { addProduct, toggleCart } = useCart();
   const pathname = usePathname();
 
   const interestRate = 0.0168; // 1.68% ao mês
   const installments = 12;
+
+  // Função para gerar atributos dinamicamente
+  // Esta função cria um array de atributos baseado nos valores disponíveis
+  // Exemplo de retorno:
+  // - Se apenas imagem: [{ key: 'Imagem', value: 'https://...' }]
+  // - Se apenas texto: [{ key: 'Texto Personalizado', value: 'ABC' }]
+  // - Se ambos: [{ key: 'Imagem', value: 'https://...' }, { key: 'Texto Personalizado', value: 'ABC' }]
+  // - Se nenhum: undefined
+  function generateCartAttributes() {
+    const attributes: Array<{ key: string; value: string }> = [];
+
+    if (customImageUrl) {
+      attributes.push({
+        key: 'Imagem',
+        value: customImageUrl,
+      });
+    }
+
+    if (customText.trim()) {
+      attributes.push({
+        key: 'Texto Personalizado',
+        value: customText.trim(),
+      });
+    }
+
+    return attributes.length > 0 ? attributes : undefined;
+  }
 
   const { mutateAsync: createCart, isPending } = useMutation({
     mutationFn: () =>
@@ -42,14 +71,7 @@ export function ProductInfo({
           {
             merchandiseId: selectedVariant.id,
             quantity,
-            attributes: customImageUrl
-              ? [
-                  {
-                    key: 'Imagem',
-                    value: customImageUrl,
-                  },
-                ]
-              : undefined,
+            attributes: generateCartAttributes(),
           },
         ],
       }),
@@ -89,6 +111,7 @@ export function ProductInfo({
       },
       quantity,
       customImageUrl: customImageUrl || undefined,
+      customText: customText.trim() || undefined,
     };
     addProduct(cartProduct);
 
@@ -219,6 +242,10 @@ export function ProductInfo({
           selectedVariant={selectedVariant}
           onVariantChange={handleVariantChange}
         />
+      )}
+
+      {selectedVariant.metafield?.value === 'true' && (
+        <LetterCustomizer onChange={setCustomText} />
       )}
 
       {product.metafield?.value === 'true' && (

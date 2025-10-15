@@ -6,6 +6,7 @@ import { createContext, ReactNode, useState, useEffect } from 'react';
 export interface CartProduct extends Product {
   quantity: number;
   customImageUrl?: string;
+  customText?: string;
   lineId: string;
 }
 
@@ -68,7 +69,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     const storedProducts = getStoredCart();
     // Migração: garantir lineId para itens existentes
     const migrated = storedProducts.map((p: any) => {
-      const computedLineId = `${p.id}:${p.customImageUrl ?? ''}`;
+      const customizations = `${p.customImageUrl ?? ''}:${p.customText ?? ''}`;
+      const computedLineId = `${p.id}:${customizations}`;
       return {
         ...p,
         lineId: p.lineId ?? computedLineId,
@@ -103,8 +105,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const addProduct = (product: Omit<CartProduct, 'lineId'>) => {
-    // lineId único por variante + customização (url)
-    const computedLineId = `${product.id}:${product.customImageUrl ?? ''}`;
+    // lineId único por variante + customizações (imagem + texto)
+    const customizations = `${product.customImageUrl ?? ''}:${
+      product.customText ?? ''
+    }`;
+    const computedLineId = `${product.id}:${customizations}`;
 
     const productIsAlreadyInTheCart = products.some(
       (prevProduct) => prevProduct.lineId === computedLineId
@@ -166,7 +171,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const removeProduct = (lineId: string) => {
     setProducts((prevProducts) => {
-      return prevProducts.filter((prevProduct) => prevProduct.lineId !== lineId);
+      return prevProducts.filter(
+        (prevProduct) => prevProduct.lineId !== lineId
+      );
     });
   };
 

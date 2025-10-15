@@ -17,10 +17,32 @@ import { Loader2, ShoppingBag, ShoppingCartIcon, Trash2 } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import { createCartAction } from '@/actions/create-cart';
 import { useMutation } from '@tanstack/react-query';
+import { CartProduct } from '@/contexts/cart';
 
 export function ShoppingCart() {
   const { products, total, totalPrice, clearCart, isOpen, toggleCart } =
     useCart();
+
+  // Função para gerar atributos dinamicamente para cada produto
+  function generateProductAttributes(product: CartProduct) {
+    const attributes: Array<{ key: string; value: string }> = [];
+
+    if (product.customImageUrl) {
+      attributes.push({
+        key: 'Imagem',
+        value: product.customImageUrl,
+      });
+    }
+
+    if (product.customText?.trim()) {
+      attributes.push({
+        key: 'Texto Personalizado',
+        value: product.customText.trim(),
+      });
+    }
+
+    return attributes.length > 0 ? attributes : undefined;
+  }
 
   const { mutateAsync: createCart, isPending } = useMutation({
     mutationFn: () =>
@@ -28,14 +50,7 @@ export function ShoppingCart() {
         lines: products.map((product) => ({
           quantity: product.quantity,
           merchandiseId: product.id,
-          attributes: product.customImageUrl
-            ? [
-                {
-                  key: 'Imagem',
-                  value: product.customImageUrl,
-                },
-              ]
-            : undefined,
+          attributes: generateProductAttributes(product),
         })),
       }),
     onSuccess: (data) => {
@@ -53,7 +68,7 @@ export function ShoppingCart() {
         <div className="relative bg-primary rounded-full p-2 hover:bg-primary/90 transition-colors cursor-pointer">
           <ShoppingCartIcon color="white" size={16} />
           {total > 0 && (
-            <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-destructive text-destructive-foreground">
+            <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-destructive text-white">
               {total}
             </Badge>
           )}

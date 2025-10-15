@@ -32,6 +32,9 @@ export const productFragment = /* GraphQl */ `
         node {
           id
           title
+          metafield(namespace: "custom", key: "alfabeto") {
+            value
+          }
           availableForSale
           image {
             ...image
