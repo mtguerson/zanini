@@ -89,7 +89,7 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
             src={product.featuredImage.url}
             alt={product.featuredImage.altText || product.title}
             fill
-            className="group-hover:scale-105 transition-transform duration-300"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
             priority={false}
             title={product.featuredImage.altText || product.title}
           />
