@@ -71,7 +71,7 @@ export function AboutCTA() {
                       size="lg"
                       className="w-full group"
                     >
-                      <Mail className="w-4 h-4 mr-2" />
+                      <Mail className="w-4 h-4 mr-1" />
                       Entrar em Contato
                     </Button>
                   </div>

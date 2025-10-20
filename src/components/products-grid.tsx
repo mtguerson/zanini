@@ -92,7 +92,7 @@ export function ProductsGrid({ products, currentSort }: ProductsGridProps) {
             className="lg:hidden"
             onClick={() => setShowMobileFilters(!showMobileFilters)}
           >
-            <Filter className="w-4 h-4 mr-2" />
+            <Filter className="w-4 h-4 mr-1" />
             Filtros
           </Button>
         </div>

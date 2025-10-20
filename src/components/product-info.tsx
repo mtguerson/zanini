@@ -300,7 +300,7 @@ export function ProductInfo({
           className="w-full h-12 text-base font-semibold"
           size="lg"
         >
-          <ShoppingCart className="w-5 h-5 mr-2" />
+          <ShoppingCart className="w-5 h-5 mr-1" />
           Adicionar ao carrinho
         </Button>
 
