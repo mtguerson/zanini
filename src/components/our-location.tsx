@@ -76,7 +76,7 @@ export function OurLocation() {
                       )
                     }
                   >
-                    <Navigation className="w-4 h-4 mr-2" />
+                    <Navigation className="w-4 h-4 mr-1" />
                     Como Chegar
                   </Button>
                 </div>

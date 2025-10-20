@@ -67,7 +67,7 @@ export function ProductCard({ product, viewMode = 'grid' }: ProductCardProps) {
                   href={`/produto/${product.handle}`}
                   title={`Ver produto ${product.title}`}
                 >
-                  <ShoppingCart className="w-4 h-4 mr-2" />
+                  <ShoppingCart className="w-4 h-4 mr-1" />
                   {product.availableForSale ? 'Ver Produto' : 'Indisponível'}
                 </Link>
               </Button>
