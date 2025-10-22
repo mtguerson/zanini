@@ -33,23 +33,23 @@ export function Hero() {
     return () => clearInterval(interval);
   }, [heroTexts.length]);
 
-  const features = [
-    {
-      icon: Palette,
-      title: 'Design Gráfico',
-      description: 'Criação de identidades visuais únicas',
-    },
-    {
-      icon: Camera,
-      title: 'Fotografia',
-      description: 'Captura de momentos especiais',
-    },
-    {
-      icon: PenTool,
-      title: 'Ilustração',
-      description: 'Arte personalizada para seu projeto',
-    },
-  ];
+  // const features = [
+  //   {
+  //     icon: Palette,
+  //     title: 'Design Gráfico',
+  //     description: 'Criação de identidades visuais únicas',
+  //   },
+  //   {
+  //     icon: Camera,
+  //     title: 'Fotografia',
+  //     description: 'Captura de momentos especiais',
+  //   },
+  //   {
+  //     icon: PenTool,
+  //     title: 'Ilustração',
+  //     description: 'Arte personalizada para seu projeto',
+  //   },
+  // ];
 
   return (
     <section className="md:py-12 py-6 overflow-hidden bg-gradient-to-br from-background via-accent/20 to-primary/5 relative">
@@ -135,7 +135,7 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Features Grid - Abaixo das colunas principais */}
+        {/* Features Grid - Abaixo das colunas principais
         <div className="mt-16 lg:mt-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {features.map((feature, index) => (
@@ -162,7 +162,7 @@ export function Hero() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* CSS Custom para o efeito Shining */}
