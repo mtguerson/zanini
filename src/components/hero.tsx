@@ -152,11 +152,11 @@ export function Hero() {
                   <feature.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors duration-300 flex-shrink-0" />
                 </div>
 
-                <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-xl text-center lg:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                   {feature.title}
                 </h3>
 
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground text-center leading-relaxed">
                   {feature.description}
                 </p>
               </div>
