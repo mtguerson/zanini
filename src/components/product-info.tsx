@@ -1,19 +1,19 @@
 'use client';
 
-import { Product, ProductVariant } from '@/lib/shopify/types';
-import { formatPrice } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { ShoppingCart, Share2, Loader2 } from 'lucide-react';
+import { useMutation } from '@tanstack/react-query';
+import { Loader2, Share2, ShoppingCart } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { useCart } from '@/hooks/use-cart';
-import { ProductVariantSelector } from './product-variant-selector';
-import FileUpload from './file-upload';
 import { toast } from 'sonner';
 import { createCartAction } from '@/actions/create-cart';
-import { useMutation } from '@tanstack/react-query';
-import { usePathname } from 'next/navigation';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { useCart } from '@/hooks/use-cart';
+import type { Product, ProductVariant } from '@/lib/shopify/types';
+import { formatPrice } from '@/lib/utils';
+import FileUpload from './file-upload';
 import { LetterCustomizer } from './letter-customizer';
+import { ProductVariantSelector } from './product-variant-selector';
 
 interface ProductInfoProps {
   product: Product;
@@ -32,7 +32,6 @@ export function ProductInfo({
   const [customImageUrl, setCustomImageUrl] = useState<string | null>(null);
   const [customText, setCustomText] = useState<string>('');
   const { addProduct, toggleCart } = useCart();
-  const pathname = usePathname();
 
   const interestRate = 0.0168; // 1.68% ao mês
   const installments = 12;
@@ -216,7 +215,7 @@ export function ProductInfo({
           ou 12x de{' '}
           {formatPrice(
             (
-              (originalPrice * Math.pow(1 + interestRate, installments)) /
+              (originalPrice * (1 + interestRate) ** installments) /
               installments
             )
               .toFixed(2)
@@ -224,16 +223,6 @@ export function ProductInfo({
           )}
         </p>
       </div>
-
-      {/* Descrição Curta */}
-      {product.description && (
-        <div className="space-y-2">
-          <p className="text-muted-foreground leading-relaxed">
-            {product.description.slice(0, 200)}
-            {product.description.length > 200 && '...'}
-          </p>
-        </div>
-      )}
 
       {/* Seletor de Variantes */}
       {product.options.length > 0 && (
@@ -313,6 +302,16 @@ export function ProductInfo({
         >
           {isPending ? <Loader2 className="animate-spin" /> : 'Comprar Agora'}
         </Button>
+
+        {/* Descrição Curta */}
+        {product.descriptionHtml && (
+          <div className="space-y-2">
+            <div
+              className="text-muted-foreground leading-relaxed prose"
+              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+            />
+          </div>
+        )}
       </div>
 
       {product.tags.length > 0 && (
