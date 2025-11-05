@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Product, ProductVariant } from '@/lib/shopify/types';
 import { ProductGallery } from '@/components/product-gallery';
 import { ProductInfo } from '@/components/product-info';
+import type { Product, ProductVariant } from '@/lib/shopify/types';
 
 interface ProductDetailsProps {
   product: Product;
