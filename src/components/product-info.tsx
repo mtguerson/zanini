@@ -141,11 +141,11 @@ export function ProductInfo({
         await navigator.clipboard.writeText(currentUrl);
         toast.success('Link do produto copiado para a área de transferência!');
       }
-    } catch (error) {
+    } catch (_) {
       try {
         await navigator.clipboard.writeText(window.location.href);
         toast.success('Link do produto copiado para a área de transferência!');
-      } catch (clipboardError) {
+      } catch (_) {
         toast.error(
           'Não foi possível copiar automaticamente. A URL é: ' +
             window.location.href
@@ -307,7 +307,7 @@ export function ProductInfo({
         {product.descriptionHtml && (
           <div className="space-y-2">
             <div
-              className="text-muted-foreground leading-relaxed prose"
+              className="prose prose-neutral max-w-none text-muted-foreground prose-h2:!font-bold prose-headings:!text-foreground prose-dark:prose-invert"
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
             />
           </div>
