@@ -1,15 +1,14 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/components/header';
-import { CartProvider } from '@/contexts/cart';
-import { Toaster } from '@/components/ui/sonner';
-import { ReactQueryProvider } from '@/providers/react-query';
-import { Footer } from '@/components/footer';
 import Script from 'next/script';
+import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
 import { ThemeProvider } from '@/components/theme-provider';
+import { Toaster } from '@/components/ui/sonner';
 import { WhatsAppButton } from '@/components/whatsapp-button';
-import { Analytics } from '@vercel/analytics/next';
+import { CartProvider } from '@/contexts/cart';
+import { ReactQueryProvider } from '@/providers/react-query';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -136,6 +135,7 @@ export default function RootLayout({
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
+            title="Google Tag Manager (noscript)"
             src="https://www.googletagmanager.com/ns.html?id=GTM-WVNX9GSD"
             height="0"
             width="0"
@@ -154,7 +154,6 @@ export default function RootLayout({
           </ReactQueryProvider>
         </ThemeProvider>
         <Toaster richColors />
-        <Analytics />
       </body>
     </html>
   );
