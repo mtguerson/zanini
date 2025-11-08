@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { GoogleTagManager } from '@next/third-parties/google';
 import Script from 'next/script';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
@@ -85,15 +86,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
-        {/* Google Tag Manager */}
-        <Script id="gtm" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-WVNX9GSD');`}
-        </Script>
-        {/* End Google Tag Manager */}
         {/* Dados estruturados: Organization */}
         <Script
           id="ld-org"
@@ -132,17 +124,6 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`antialiased ${inter.className}`}>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            title="Google Tag Manager (noscript)"
-            src="https://www.googletagmanager.com/ns.html?id=GTM-WVNX9GSD"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
-        {/* End Google Tag Manager (noscript) */}
         <ThemeProvider defaultTheme="system">
           <ReactQueryProvider>
             <CartProvider>
@@ -155,6 +136,7 @@ export default function RootLayout({
         </ThemeProvider>
         <Toaster richColors />
       </body>
+      <GoogleTagManager gtmId="G-JH6QPH2248" />
     </html>
   );
 }
