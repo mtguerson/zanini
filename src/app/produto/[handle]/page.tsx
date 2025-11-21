@@ -1,7 +1,9 @@
-import { getProduct } from '@/lib/shopify';
+import { getProduct, getProductRecommendations } from '@/lib/shopify';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { ProductDetails } from '@/components/product-details';
+import { ProductReviews } from '@/components/product-reviews';
+import { RelatedProducts } from '@/components/related-products';
 
 type ProductPageParams = {
   params: Promise<{
@@ -55,10 +57,22 @@ export default async function ProductPage({ params }: ProductPageParams) {
     notFound();
   }
 
+  const relatedProducts = await getProductRecommendations(product.id);
+
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 space-y-16">
         <ProductDetails product={product} />
+
+        <div className="border-t pt-16">
+          <ProductReviews />
+        </div>
+
+        {relatedProducts.length > 0 && (
+          <div className="border-t pt-16">
+            <RelatedProducts products={relatedProducts} />
+          </div>
+        )}
       </div>
     </div>
   );
