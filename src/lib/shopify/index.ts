@@ -12,7 +12,11 @@ import {
   getCollectionsQuery,
 } from './queries/collection';
 import { getMenuQuery } from './queries/menu';
-import { getProductQuery, getProductsQuery } from './queries/product';
+import {
+  getProductQuery,
+  getProductRecommendationsQuery,
+  getProductsQuery,
+} from './queries/product';
 import { cartCreateMutation } from './mutations/cart';
 import {
   Collection,
@@ -31,6 +35,7 @@ import {
   ShopifyCartCreateOperation,
   Cart,
   ShopifyCartGetCheckoutUrlOperation,
+  ShopifyProductRecommendationsOperation,
 } from './types';
 import { getCheckoutUrlQuery } from './queries/cart';
 
@@ -197,6 +202,20 @@ export async function getProducts({
   });
 
   return reshapeProducts(removeEdgesAndNodes(response.body.data.products));
+}
+
+export async function getProductRecommendations(
+  productId: string
+): Promise<Product[]> {
+  const response = await shopifyFetch<ShopifyProductRecommendationsOperation>({
+    query: getProductRecommendationsQuery,
+    tags: [TAGS.products],
+    variables: {
+      productId,
+    },
+  });
+
+  return reshapeProducts(response.body.data.productRecommendations);
 }
 
 function reshapeCollection(
